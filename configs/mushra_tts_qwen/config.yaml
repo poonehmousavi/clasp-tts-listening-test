@@ -1,0 +1,372 @@
+testname: CLASP TTS Style Listening Test
+testId: styleclap_tts
+bufferSize: 2048
+stopOnErrors: true
+showButtonPreviousPage: true
+remoteService: download
+pages:
+- type: generic
+  id: intro
+  name: Welcome
+  content: '<h2>Synthesized-speech style listening test</h2><p>Thank you for participating. You judge how well synthesized speech clips match a <b>speaking style</b> described in text.</p><h3>What you will hear</h3><p>Each trial shows a short <b>style description</b> and several clips that all speak the <b>same sentence</b> but were produced with different settings. You rate how well each clip''s delivery matches the described style.</p><h3>Your task</h3><p>For each clip, move its slider:</p><ul><li><b>Perfect match (100)</b>: delivery matches the style perfectly.</li><li><b>Good match (75)</b>: clearly matches, with minor differences.</li><li><b>Partial match (50)</b>: some traits match, others don''t.</li><li><b>Poor match (25)</b>: mostly doesn''t match.</li><li><b>No match (0)</b>: a completely different style.</li></ul><p>Multiple clips can have similar scores.</p><h3>What is speaking style</h3><p>Speaking style is <b>how a line is said</b>, not the words. Since every clip says the same sentence, judge only the delivery. A few examples of what to listen for (there is more to notice; these are just examples):</p><ul><li><b>Emotion / tone</b>: happy, angry, sad, neutral, urgent, warm, cold, etc.</li><li><b>Pacing</b>: slow, measured, fast, rushed, with or without pauses.</li><li><b>Level of energy</b>: low and calm vs. high and excited.</li><li><b>Vocal effort</b>: whispered, soft, conversational, projected, shouted.</li></ul><p><b>A natural, believable delivery that fits the description is ideal.</b> Over-acting or exaggerating the emotion beyond what the style calls for is <b>not</b> a better match. Judge whether the delivery is <i>appropriate</i> for the style, not simply how strong or intense it is.</p><h3>Practical tips</h3><ul><li>Use <b>headphones</b> in a quiet room.</li><li>The test has <b>6 trials</b>.</li><li style=''color:#b00''><b>Do not navigate away, refresh, or close the tab during the test. Your results will be lost.</b></li></ul><p>The next page is a short <b>tutorial</b>, followed by a <b>practice trial</b> (its ratings are discarded). Click <i>Next</i> when ready.</p>'
+- type: mushra
+  id: trial_practice
+  name: Practice
+  content: <p style='color:#b00'><i>Practice round. Your ratings here are discarded.</i></p><p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Direct and slightly urgent, with a pleading tone. Pace is moderate, and voice carries a mix of impatience and understanding.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;I know.  I've been in line with these people.  I understand.  I understand what it's like.  Could you please like call over and-&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+  reference: tts_stimuli/practice/reference.wav
+  hideReference: true
+  createAnchor35: false
+  createAnchor70: false
+  randomize: false
+  showWaveform: false
+  enableLooping: false
+  stimuli:
+    C1: tts_stimuli/practice/C1.wav
+    C2: tts_stimuli/practice/C2.wav
+    C3: tts_stimuli/practice/C3.wav
+    C4: tts_stimuli/practice/C4.wav
+-
+  - random_subset
+  - 6
+  - type: mushra
+    id: trial_qwen3tts__Ses05F_impro01_F012
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>The tone is urgent and emotional, with a pleading cadence and slightly trembling voice, indicating vulnerability and high stakes.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;Is there anything you can do?  Please, have some compassion.  Is there something you can do?&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05F_impro01_F012/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05F_impro01_F012/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05F_impro01_F012/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05F_impro01_F012/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05F_impro01_F012/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05F_impro01_M016
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Fast-paced, high-pitched, and sarcastic, with a sharp, rising inflection that emphasizes disbelief. A brief, dismissive interjection from another voice is heard.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;You asked the janitor what line to stand in?  Obviously, that's not going to be the right thing.&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05F_impro01_M016/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05F_impro01_M016/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05F_impro01_M016/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05F_impro01_M016/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05F_impro01_M016/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05F_impro02_M014
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>High-pitched, fast-paced, and strained. The speaker's voice cracks slightly, conveying agitation and disbelief.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;I don't understand why they would just do something like this?&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05F_impro02_M014/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05F_impro02_M014/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05F_impro02_M014/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05F_impro02_M014/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05F_impro02_M014/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05F_impro02_M023
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Fast-paced, breathless, with a high-pitched, strained tone and emotional urgency; slight tremble in voice indicating distress.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;I can't let you go.  I can't let you go.  I'll call them.  I'll say something.  I'll do anything.  I'll tell them something different.&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05F_impro02_M023/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05F_impro02_M023/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05F_impro02_M023/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05F_impro02_M023/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05F_impro02_M023/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05F_impro04_F012
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>The speech is fast-paced and forceful, with a sharp, rising inflection that underscores the speaker's disbelief and irritation.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;No, I don't I don't want to accept that.  I think that's bullshit.&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05F_impro04_F012/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05F_impro04_F012/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05F_impro04_F012/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05F_impro04_F012/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05F_impro04_F012/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05F_impro05_F041
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Fast-paced, rising intonation, and high pitch; includes a brief, stressed pause. The voice conveys a feeling of being misunderstood.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;No, I don't think I am.  I like have a whole bunch of stuff that means a lot to me, and I brought it you know from Africa.  It's not like I can just go back and get it whenever I want.&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05F_impro05_F041/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05F_impro05_F041/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05F_impro05_F041/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05F_impro05_F041/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05F_impro05_F041/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05F_impro07_M015
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Warm, upbeat, and expressive with a fast-paced, enthusiastic tone and a friendly, almost sing-song rhythm.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;You're going to have so much fun.  And there's lo- tons of people, you're going to meet so many people, I'm going to meet so many people too, because we're going to be there together.&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05F_impro07_M015/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05F_impro07_M015/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05F_impro07_M015/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05F_impro07_M015/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05F_impro07_M015/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05F_impro08_M003
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Slow, deliberate, and heartfelt. The tone is sincere and warm, with a noticeable pause and breath before the final words.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;you are a real human being.  Thank you very, very much.&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05F_impro08_M003/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05F_impro08_M003/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05F_impro08_M003/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05F_impro08_M003/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05F_impro08_M003/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05F_script01_1_M011
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Slow, hesitant, and questioning. The voice carries a trembling quality, with pauses and upward inflections suggesting uncertainty and inner struggle.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;Why shouldn't he dream about him, walk around during the night, looking for him um.  Do we contradict him?  Do we say outright that we don't have any hope anymore, that we haven't had any for years now?&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05F_script01_1_M011/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05F_script01_1_M011/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05F_script01_1_M011/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05F_script01_1_M011/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05F_script01_1_M011/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05F_script01_2_F011
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Rapid, strained, and high-pitched, with a trembling quality that conveys desperation and inner turmoil.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;Because if he's not coming back, then I'll kill myself.&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05F_script01_2_F011/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05F_script01_2_F011/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05F_script01_2_F011/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05F_script01_2_F011/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05F_script01_2_F011/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05F_script01_2_F013
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Urgent and trembling, with a breathy, pleading tone and slight vocal cracks.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;Believe with me, Joe.  I can't stand alone.&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05F_script01_2_F013/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05F_script01_2_F013/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05F_script01_2_F013/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05F_script01_2_F013/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05F_script01_2_F013/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05F_script01_3_M008
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Hesitant and breathy, with repeated phrases and a wavering tone that conveys emotional intensity and vulnerability.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;Anne, I love you.  I love you a great deal.  I love you!&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05F_script01_3_M008/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05F_script01_3_M008/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05F_script01_3_M008/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05F_script01_3_M008/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05F_script01_3_M008/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05F_script03_1_F005
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Whispered and breathy, with a slow, deliberate pace and a trailing tone; includes a soft, involuntary shiver.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;Oh, it sent shivers up my spine.&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05F_script03_1_F005/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05F_script03_1_F005/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05F_script03_1_F005/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05F_script03_1_F005/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05F_script03_1_F005/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05M_impro01_M017
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Calm and low-pitched, with a dismissive tone and a slow, deliberate pace. The delivery is matter-of-fact and lacks emotional intensity, punctuated by a short, non-verbal chuckle at the end.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;That's crap- You're crap.  I don't buy it.&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05M_impro01_M017/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05M_impro01_M017/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05M_impro01_M017/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05M_impro01_M017/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05M_impro01_M017/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05M_impro02_F010
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Rapid, urgent, with a pleading, high-pitched tone; the question is delivered almost as a cry.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;Why don't we do that- Can we- Can we just leave the country?&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05M_impro02_F010/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05M_impro02_F010/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05M_impro02_F010/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05M_impro02_F010/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05M_impro02_F010/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05M_impro02_M007
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Fast-paced, high-pitched, and breathless, with a sense of urgency and desperation.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;I don't have a choice.  I have to go.  If I don't go, they'll come and take me.&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05M_impro02_M007/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05M_impro02_M007/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05M_impro02_M007/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05M_impro02_M007/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05M_impro02_M007/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05M_impro02_M022
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Fast-paced and breathy, with rising pitch and a pleading tone. The delivery is slightly shaky, suggesting underlying fear masked by bravado.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;but, it's gonna be fine.  I'm gonna be fine.  You know I'm good at this.  I can do this.  That's why I trained all this time.  I'm good at this.  Okay?&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05M_impro02_M022/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05M_impro02_M022/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05M_impro02_M022/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05M_impro02_M022/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05M_impro02_M022/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05M_impro08_F021
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>The tone is bright and high-pitched with a quick, energetic pace. There's a genuine sense of wonder in the voice, emphasized by a slight upward inflection at the end.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;Wow.  That would be amazing.  Really?&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05M_impro08_F021/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05M_impro08_F021/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05M_impro08_F021/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05M_impro08_F021/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05M_impro08_F021/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05M_script01_1b_M036
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>The tone is heartfelt and sincere, with a slightly pleading quality. The pacing is moderate, with pauses used for emphasis, and there's a subtle vulnerability in the voice.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;Yeah, I'd like one hour a day.  If I have to grub for money all day long, I'd like to go home to something beautiful.  I'd like a family.  I'd like some kids.&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05M_script01_1b_M036/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05M_script01_1b_M036/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05M_script01_1b_M036/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05M_script01_1b_M036/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05M_script01_1b_M036/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05M_script01_3_M009
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Rushed and halting, with a shaky, higher-pitched tone and audible breathing. The delivery is emotionally charged and strained.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;I don't know what to say.  I have no imagination.  That's all I have to say to you.  God, I'm embarrassing you. I-I didn't want to do this here. I- I wanted to do it someplace different, someplace where we could be new to each other.&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05M_script01_3_M009/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05M_script01_3_M009/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05M_script01_3_M009/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05M_script01_3_M009/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05M_script01_3_M009/C4.wav
+  - type: mushra
+    id: trial_qwen3tts__Ses05M_script03_1_F028
+    name: Trial
+    content: <p><b>Target speaking style:</b></p><p style='font-size:1.15em;margin-top:0'><b><i>Casual and conversational, with a moderate pace and a smile evident in the voice. Includes light laughter.</i></b></p><p>Every clip below speaks the <b>same sentence</b> (&ldquo;And then the manager came in and saw us all rolling all over the floor, biting and scratching one another.&rdquo;). Rate how well each clip's <b>delivery</b> matches the target style above.</p>
+    reference: tts_stimuli/qwen3tts__Ses05M_script03_1_F028/reference.wav
+    hideReference: true
+    createAnchor35: false
+    createAnchor70: false
+    randomize: true
+    showWaveform: false
+    enableLooping: false
+    stimuli:
+      C1: tts_stimuli/qwen3tts__Ses05M_script03_1_F028/C1.wav
+      C2: tts_stimuli/qwen3tts__Ses05M_script03_1_F028/C2.wav
+      C3: tts_stimuli/qwen3tts__Ses05M_script03_1_F028/C3.wav
+      C4: tts_stimuli/qwen3tts__Ses05M_script03_1_F028/C4.wav
+- type: finish
+  name: Thank you
+  content: '<p>Thank you for participating!</p><p><b>A file named <i>mushra_&lt;id&gt;.csv</i> has been downloaded by your browser.</b> Please send it to the experimenter. If no download appeared, click <i>Send Results</i> again or check your Downloads folder.</p>'
+  popupContent: Your results file has been downloaded. Please send it to the experimenter. Thank you!
+  showResults: false
+  writeResults: true

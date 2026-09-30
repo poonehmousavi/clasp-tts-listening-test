@@ -71,6 +71,24 @@ function addPagesToPageManager(_pageManager, _pages) {
       if (_pages[i][0] === "random") {
         _pages[i].shift();
         shuffle(_pages[i]);
+      } else if (_pages[i][0] === "random_subset") {
+        // ["random_subset", N, page, page, ...] -> N pages drawn uniformly without replacement, shuffled
+        var nSub = _pages[i][1];
+        var poolSub = _pages[i].slice(2);
+        shuffle(poolSub);
+        _pages[i] = poolSub.slice(0, nSub);
+      } else if (_pages[i][0] === "random_stratified") {
+        // ["random_stratified", K, [bin pages], [bin pages], ...] -> K pages drawn from EACH bin
+        // (without replacement), then all drawn pages shuffled together.
+        var kPer = _pages[i][1];
+        var picked = [];
+        for (var b = 2; b < _pages[i].length; ++b) {
+          var bin = _pages[i][b].slice();
+          shuffle(bin);
+          picked = picked.concat(bin.slice(0, kPer));
+        }
+        shuffle(picked);
+        _pages[i] = picked;
       }
       addPagesToPageManager(_pageManager, _pages[i]);
     } else {

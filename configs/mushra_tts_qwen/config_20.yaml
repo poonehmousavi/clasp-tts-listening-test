@@ -29,6 +29,7 @@ pages:
     C2: tts_stimuli/practice/C2.wav
     C3: tts_stimuli/practice/C3.wav
     C4: tts_stimuli/practice/C4.wav
+  switchBack: true
 -
   - random_stratified
   - 5
@@ -49,6 +50,7 @@ pages:
         C2: tts_stimuli/qwen3tts__MarineCarve_107/C2.wav
         C3: tts_stimuli/qwen3tts__MarineCarve_107/C3.wav
         C4: tts_stimuli/qwen3tts__MarineCarve_107/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__MarineCarve_140
       name: Trial
@@ -65,6 +67,7 @@ pages:
         C2: tts_stimuli/qwen3tts__MarineCarve_140/C2.wav
         C3: tts_stimuli/qwen3tts__MarineCarve_140/C3.wav
         C4: tts_stimuli/qwen3tts__MarineCarve_140/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__MarineCarve_173
       name: Trial
@@ -81,6 +84,7 @@ pages:
         C2: tts_stimuli/qwen3tts__MarineCarve_173/C2.wav
         C3: tts_stimuli/qwen3tts__MarineCarve_173/C3.wav
         C4: tts_stimuli/qwen3tts__MarineCarve_173/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__MarineCarve_257
       name: Trial
@@ -97,6 +101,7 @@ pages:
         C2: tts_stimuli/qwen3tts__MarineCarve_257/C2.wav
         C3: tts_stimuli/qwen3tts__MarineCarve_257/C3.wav
         C4: tts_stimuli/qwen3tts__MarineCarve_257/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__MarineCarve_388
       name: Trial
@@ -113,6 +118,7 @@ pages:
         C2: tts_stimuli/qwen3tts__MarineCarve_388/C2.wav
         C3: tts_stimuli/qwen3tts__MarineCarve_388/C3.wav
         C4: tts_stimuli/qwen3tts__MarineCarve_388/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__MarineCarve_401
       name: Trial
@@ -129,6 +135,7 @@ pages:
         C2: tts_stimuli/qwen3tts__MarineCarve_401/C2.wav
         C3: tts_stimuli/qwen3tts__MarineCarve_401/C3.wav
         C4: tts_stimuli/qwen3tts__MarineCarve_401/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__MarineCarve_445
       name: Trial
@@ -145,6 +152,7 @@ pages:
         C2: tts_stimuli/qwen3tts__MarineCarve_445/C2.wav
         C3: tts_stimuli/qwen3tts__MarineCarve_445/C3.wav
         C4: tts_stimuli/qwen3tts__MarineCarve_445/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__MarineCarve_465
       name: Trial
@@ -161,6 +169,7 @@ pages:
         C2: tts_stimuli/qwen3tts__MarineCarve_465/C2.wav
         C3: tts_stimuli/qwen3tts__MarineCarve_465/C3.wav
         C4: tts_stimuli/qwen3tts__MarineCarve_465/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__MarineCarve_494
       name: Trial
@@ -177,6 +186,7 @@ pages:
         C2: tts_stimuli/qwen3tts__MarineCarve_494/C2.wav
         C3: tts_stimuli/qwen3tts__MarineCarve_494/C3.wav
         C4: tts_stimuli/qwen3tts__MarineCarve_494/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__MarineCarve_500
       name: Trial
@@ -193,6 +203,7 @@ pages:
         C2: tts_stimuli/qwen3tts__MarineCarve_500/C2.wav
         C3: tts_stimuli/qwen3tts__MarineCarve_500/C3.wav
         C4: tts_stimuli/qwen3tts__MarineCarve_500/C4.wav
+      switchBack: true
   -
     - type: mushra
       id: trial_qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Frustrated_C01TTS1766s
@@ -210,6 +221,7 @@ pages:
         C2: tts_stimuli/qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Frustrated_C01TTS1766s/C2.wav
         C3: tts_stimuli/qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Frustrated_C01TTS1766s/C3.wav
         C4: tts_stimuli/qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Frustrated_C01TTS1766s/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Impatient_C01TTS1091s
       name: Trial
@@ -226,6 +238,7 @@ pages:
         C2: tts_stimuli/qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Impatient_C01TTS1091s/C2.wav
         C3: tts_stimuli/qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Impatient_C01TTS1091s/C3.wav
         C4: tts_stimuli/qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Impatient_C01TTS1091s/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Impatient_C01TTS1098s
       name: Trial
@@ -242,6 +255,7 @@ pages:
         C2: tts_stimuli/qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Impatient_C01TTS1098s/C2.wav
         C3: tts_stimuli/qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Impatient_C01TTS1098s/C3.wav
         C4: tts_stimuli/qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Impatient_C01TTS1098s/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Repeating_C01TTS0051s
       name: Trial
@@ -258,6 +272,7 @@ pages:
         C2: tts_stimuli/qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Repeating_C01TTS0051s/C2.wav
         C3: tts_stimuli/qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Repeating_C01TTS0051s/C3.wav
         C4: tts_stimuli/qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Repeating_C01TTS0051s/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Unimpressed_C01TTS0414s
       name: Trial
@@ -274,6 +289,7 @@ pages:
         C2: tts_stimuli/qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Unimpressed_C01TTS0414s/C2.wav
         C3: tts_stimuli/qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Unimpressed_C01TTS0414s/C3.wav
         C4: tts_stimuli/qwen3tts__TTS_RitaGearspark_AngryAnnoyedDefensive_Unimpressed_C01TTS0414s/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__TTS_RitaGearspark_CautiousConcernedCurious_Intrigued_C01TTS0067s
       name: Trial
@@ -290,6 +306,7 @@ pages:
         C2: tts_stimuli/qwen3tts__TTS_RitaGearspark_CautiousConcernedCurious_Intrigued_C01TTS0067s/C2.wav
         C3: tts_stimuli/qwen3tts__TTS_RitaGearspark_CautiousConcernedCurious_Intrigued_C01TTS0067s/C3.wav
         C4: tts_stimuli/qwen3tts__TTS_RitaGearspark_CautiousConcernedCurious_Intrigued_C01TTS0067s/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__TTS_RitaGearspark_Combat,Taunts,Action_Panting_C01TTS0092s
       name: Trial
@@ -306,6 +323,7 @@ pages:
         C2: tts_stimuli/qwen3tts__TTS_RitaGearspark_Combat,Taunts,Action_Panting_C01TTS0092s/C2.wav
         C3: tts_stimuli/qwen3tts__TTS_RitaGearspark_Combat,Taunts,Action_Panting_C01TTS0092s/C3.wav
         C4: tts_stimuli/qwen3tts__TTS_RitaGearspark_Combat,Taunts,Action_Panting_C01TTS0092s/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__TTS_RitaGearspark_HappyExcited_Anxious_C01TTS1531s
       name: Trial
@@ -322,6 +340,7 @@ pages:
         C2: tts_stimuli/qwen3tts__TTS_RitaGearspark_HappyExcited_Anxious_C01TTS1531s/C2.wav
         C3: tts_stimuli/qwen3tts__TTS_RitaGearspark_HappyExcited_Anxious_C01TTS1531s/C3.wav
         C4: tts_stimuli/qwen3tts__TTS_RitaGearspark_HappyExcited_Anxious_C01TTS1531s/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__TTS_RitaGearspark_HappyExcited_Optimistic_C01TTS1515s
       name: Trial
@@ -338,6 +357,7 @@ pages:
         C2: tts_stimuli/qwen3tts__TTS_RitaGearspark_HappyExcited_Optimistic_C01TTS1515s/C2.wav
         C3: tts_stimuli/qwen3tts__TTS_RitaGearspark_HappyExcited_Optimistic_C01TTS1515s/C3.wav
         C4: tts_stimuli/qwen3tts__TTS_RitaGearspark_HappyExcited_Optimistic_C01TTS1515s/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__VO_RitaGearspark_AudioLog05_Neutral_Med_C01CIN129s
       name: Trial
@@ -354,6 +374,7 @@ pages:
         C2: tts_stimuli/qwen3tts__VO_RitaGearspark_AudioLog05_Neutral_Med_C01CIN129s/C2.wav
         C3: tts_stimuli/qwen3tts__VO_RitaGearspark_AudioLog05_Neutral_Med_C01CIN129s/C3.wav
         C4: tts_stimuli/qwen3tts__VO_RitaGearspark_AudioLog05_Neutral_Med_C01CIN129s/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__VO_RitaGearspark_ConvEnd_Neutral_Short_C01GAM0376s
       name: Trial
@@ -370,6 +391,7 @@ pages:
         C2: tts_stimuli/qwen3tts__VO_RitaGearspark_ConvEnd_Neutral_Short_C01GAM0376s/C2.wav
         C3: tts_stimuli/qwen3tts__VO_RitaGearspark_ConvEnd_Neutral_Short_C01GAM0376s/C3.wav
         C4: tts_stimuli/qwen3tts__VO_RitaGearspark_ConvEnd_Neutral_Short_C01GAM0376s/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__VO_RitaGearspark_OrderMoveLeft_Combat_Short_C01GAM0103s
       name: Trial
@@ -386,6 +408,7 @@ pages:
         C2: tts_stimuli/qwen3tts__VO_RitaGearspark_OrderMoveLeft_Combat_Short_C01GAM0103s/C2.wav
         C3: tts_stimuli/qwen3tts__VO_RitaGearspark_OrderMoveLeft_Combat_Short_C01GAM0103s/C3.wav
         C4: tts_stimuli/qwen3tts__VO_RitaGearspark_OrderMoveLeft_Combat_Short_C01GAM0103s/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__VO_RitaGearspark_WhereFromResp_Neutral_Short_C01GAM0332s
       name: Trial
@@ -402,6 +425,7 @@ pages:
         C2: tts_stimuli/qwen3tts__VO_RitaGearspark_WhereFromResp_Neutral_Short_C01GAM0332s/C2.wav
         C3: tts_stimuli/qwen3tts__VO_RitaGearspark_WhereFromResp_Neutral_Short_C01GAM0332s/C3.wav
         C4: tts_stimuli/qwen3tts__VO_RitaGearspark_WhereFromResp_Neutral_Short_C01GAM0332s/C4.wav
+      switchBack: true
   -
     - type: mushra
       id: trial_qwen3tts__Ses05F_impro01_F006
@@ -419,6 +443,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05F_impro01_F006/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05F_impro01_F006/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05F_impro01_F006/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05F_impro01_F012
       name: Trial
@@ -435,6 +460,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05F_impro01_F012/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05F_impro01_F012/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05F_impro01_F012/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05F_impro04_F012
       name: Trial
@@ -451,6 +477,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05F_impro04_F012/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05F_impro04_F012/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05F_impro04_F012/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05F_impro05_F041
       name: Trial
@@ -467,6 +494,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05F_impro05_F041/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05F_impro05_F041/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05F_impro05_F041/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05F_script01_2_F011
       name: Trial
@@ -483,6 +511,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05F_script01_2_F011/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05F_script01_2_F011/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05F_script01_2_F011/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05F_script01_2_F013
       name: Trial
@@ -499,6 +528,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05F_script01_2_F013/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05F_script01_2_F013/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05F_script01_2_F013/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05F_script03_1_F005
       name: Trial
@@ -515,6 +545,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05F_script03_1_F005/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05F_script03_1_F005/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05F_script03_1_F005/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05M_impro02_F010
       name: Trial
@@ -531,6 +562,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05M_impro02_F010/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05M_impro02_F010/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05M_impro02_F010/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05M_impro08_F021
       name: Trial
@@ -547,6 +579,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05M_impro08_F021/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05M_impro08_F021/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05M_impro08_F021/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05M_script03_1_F028
       name: Trial
@@ -563,6 +596,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05M_script03_1_F028/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05M_script03_1_F028/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05M_script03_1_F028/C4.wav
+      switchBack: true
   -
     - type: mushra
       id: trial_qwen3tts__Ses05F_impro01_M016
@@ -580,6 +614,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05F_impro01_M016/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05F_impro01_M016/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05F_impro01_M016/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05F_impro02_M014
       name: Trial
@@ -596,6 +631,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05F_impro02_M014/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05F_impro02_M014/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05F_impro02_M014/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05F_impro02_M023
       name: Trial
@@ -612,6 +648,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05F_impro02_M023/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05F_impro02_M023/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05F_impro02_M023/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05F_impro07_M015
       name: Trial
@@ -628,6 +665,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05F_impro07_M015/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05F_impro07_M015/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05F_impro07_M015/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05F_impro08_M003
       name: Trial
@@ -644,6 +682,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05F_impro08_M003/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05F_impro08_M003/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05F_impro08_M003/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05F_script01_1_M011
       name: Trial
@@ -660,6 +699,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05F_script01_1_M011/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05F_script01_1_M011/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05F_script01_1_M011/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05F_script01_3_M008
       name: Trial
@@ -676,6 +716,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05F_script01_3_M008/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05F_script01_3_M008/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05F_script01_3_M008/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05M_impro01_M017
       name: Trial
@@ -692,6 +733,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05M_impro01_M017/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05M_impro01_M017/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05M_impro01_M017/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05M_impro02_M007
       name: Trial
@@ -708,6 +750,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05M_impro02_M007/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05M_impro02_M007/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05M_impro02_M007/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05M_impro02_M022
       name: Trial
@@ -724,6 +767,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05M_impro02_M022/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05M_impro02_M022/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05M_impro02_M022/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05M_script01_1b_M036
       name: Trial
@@ -740,6 +784,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05M_script01_1b_M036/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05M_script01_1b_M036/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05M_script01_1b_M036/C4.wav
+      switchBack: true
     - type: mushra
       id: trial_qwen3tts__Ses05M_script01_3_M009
       name: Trial
@@ -756,6 +801,7 @@ pages:
         C2: tts_stimuli/qwen3tts__Ses05M_script01_3_M009/C2.wav
         C3: tts_stimuli/qwen3tts__Ses05M_script01_3_M009/C3.wav
         C4: tts_stimuli/qwen3tts__Ses05M_script01_3_M009/C4.wav
+      switchBack: true
 - type: finish
   name: Thank you
   content: Thank you for participating!

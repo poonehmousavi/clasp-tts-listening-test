@@ -89,7 +89,7 @@ const store = {
   set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} },
   del(k){ try{ localStorage.removeItem(k); }catch(e){} }
 };
-const SKEY = "annot_check_v3_state";
+const SKEY = "annot_check_v4_state";
 let DATA = null, S = null;
 const $ = (h)=>{ const t=document.createElement("template"); t.innerHTML=h.trim(); return t.content.firstChild; };
 const esc = (s)=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -120,12 +120,11 @@ function startView(){
   const v = $(`<div>
     <h1>Speaking style study</h1>
     <p>You will listen to short recordings of actors and judge <b>how</b> each line is spoken, not what is said.
-    There are 20 clips and the study takes about 20 to 25 minutes. Please use headphones in a quiet room.</p>
+    There are 16 clips and the study takes about 15 minutes. Please use headphones in a quiet room.</p>
     <div class="card">
-      <p>Each clip has up to three short steps:</p>
+      <p>Each clip has two short steps:</p>
       <p><b>Step 1.</b> Describe the clip's delivery on six attributes.</p>
       <p><b>Step 2.</b> Rate how well a written description matches the clip. Some descriptions belong to the clip and some do not.</p>
-      <p><b>Step 3</b> (most clips). Read a description of a speaking style and choose which of two clips matches it better.</p>
       <p class="muted small">Your answers are stored anonymously under the ID you enter below and used only for research.</p>
     </div>
     <div class="card">
@@ -275,6 +274,7 @@ function sessionJSON(){
     {stimulus:"rater", score:0, time:0, comment:S.rater}, {stimulus:"english", score:0, time:0, comment:S.eng},
     {stimulus:"list", score:(S.list==="L1"?1:0), time:0, comment:S.list},
     {stimulus:"block", score:S.block, time:0, comment:"g"+S.g},
+    {stimulus:"design", score:(DATA.design||0), time:0, comment:""},
     {stimulus:"started", score:0, time:0, comment:S.started}, {stimulus:"finished", score:0, time:0, comment:S.finished||""}]}];
   for (const [cid, r] of Object.entries(S.A)){
     if (!r.done) continue;

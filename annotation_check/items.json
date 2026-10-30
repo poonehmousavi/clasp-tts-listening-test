@@ -43,6 +43,7 @@
   {
    "id": "c001",
    "audio": "audio/c001.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d001",
@@ -57,6 +58,7 @@
   {
    "id": "c002",
    "audio": "audio/c002.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d004",
@@ -71,6 +73,7 @@
   {
    "id": "c003",
    "audio": "audio/c003.mp3",
+   "block": 1,
    "desc": {
     "L0": {
      "id": "d005",
@@ -85,6 +88,7 @@
   {
    "id": "c004",
    "audio": "audio/c004.mp3",
+   "block": 1,
    "desc": {
     "L0": {
      "id": "d008",
@@ -99,6 +103,7 @@
   {
    "id": "c005",
    "audio": "audio/c005.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d009",
@@ -113,6 +118,7 @@
   {
    "id": "c006",
    "audio": "audio/c006.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d012",
@@ -127,6 +133,7 @@
   {
    "id": "c007",
    "audio": "audio/c007.mp3",
+   "block": 1,
    "desc": {
     "L0": {
      "id": "d013",
@@ -141,6 +148,7 @@
   {
    "id": "c008",
    "audio": "audio/c008.mp3",
+   "block": 1,
    "desc": {
     "L0": {
      "id": "d016",
@@ -155,6 +163,7 @@
   {
    "id": "c009",
    "audio": "audio/c009.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d017",
@@ -169,6 +178,7 @@
   {
    "id": "c010",
    "audio": "audio/c010.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d020",
@@ -183,6 +193,7 @@
   {
    "id": "c011",
    "audio": "audio/c011.mp3",
+   "block": 1,
    "desc": {
     "L0": {
      "id": "d021",
@@ -197,6 +208,7 @@
   {
    "id": "c012",
    "audio": "audio/c012.mp3",
+   "block": 1,
    "desc": {
     "L0": {
      "id": "d024",
@@ -211,6 +223,7 @@
   {
    "id": "c013",
    "audio": "audio/c013.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d025",
@@ -225,6 +238,7 @@
   {
    "id": "c014",
    "audio": "audio/c014.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d028",
@@ -239,6 +253,7 @@
   {
    "id": "c015",
    "audio": "audio/c015.mp3",
+   "block": 1,
    "desc": {
     "L0": {
      "id": "d029",
@@ -253,6 +268,7 @@
   {
    "id": "c016",
    "audio": "audio/c016.mp3",
+   "block": 1,
    "desc": {
     "L0": {
      "id": "d032",
@@ -267,6 +283,7 @@
   {
    "id": "c017",
    "audio": "audio/c017.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d033",
@@ -281,6 +298,7 @@
   {
    "id": "c018",
    "audio": "audio/c018.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d036",
@@ -295,6 +313,7 @@
   {
    "id": "c019",
    "audio": "audio/c019.mp3",
+   "block": 1,
    "desc": {
     "L0": {
      "id": "d037",
@@ -309,6 +328,7 @@
   {
    "id": "c020",
    "audio": "audio/c020.mp3",
+   "block": 1,
    "desc": {
     "L0": {
      "id": "d040",
@@ -323,6 +343,7 @@
   {
    "id": "c021",
    "audio": "audio/c021.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d041",
@@ -337,6 +358,7 @@
   {
    "id": "c022",
    "audio": "audio/c022.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d044",
@@ -351,6 +373,7 @@
   {
    "id": "c023",
    "audio": "audio/c023.mp3",
+   "block": 1,
    "desc": {
     "L0": {
      "id": "d045",
@@ -365,6 +388,7 @@
   {
    "id": "c024",
    "audio": "audio/c024.mp3",
+   "block": 1,
    "desc": {
     "L0": {
      "id": "d048",
@@ -379,6 +403,7 @@
   {
    "id": "c025",
    "audio": "audio/c025.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d049",
@@ -393,6 +418,7 @@
   {
    "id": "c026",
    "audio": "audio/c026.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d052",
@@ -407,6 +433,7 @@
   {
    "id": "c027",
    "audio": "audio/c027.mp3",
+   "block": 1,
    "desc": {
     "L0": {
      "id": "d053",
@@ -421,6 +448,7 @@
   {
    "id": "c028",
    "audio": "audio/c028.mp3",
+   "block": 1,
    "desc": {
     "L0": {
      "id": "d056",
@@ -435,6 +463,7 @@
   {
    "id": "c029",
    "audio": "audio/c029.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d057",
@@ -449,6 +478,7 @@
   {
    "id": "c030",
    "audio": "audio/c030.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d060",
@@ -463,6 +493,7 @@
   {
    "id": "c031",
    "audio": "audio/c031.mp3",
+   "block": 1,
    "desc": {
     "L0": {
      "id": "d061",
@@ -477,6 +508,7 @@
   {
    "id": "c032",
    "audio": "audio/c032.mp3",
+   "block": 1,
    "desc": {
     "L0": {
      "id": "d064",
@@ -492,6 +524,7 @@
  "B": [
   {
    "id": "p001",
+   "block": 0,
    "desc": {
     "id": "d065",
     "text": "High-pitched, forceful, and urgent with a strained, emotional tone. The delivery is fast and punctuated, with a slight cry-like quality."
@@ -509,6 +542,7 @@
   },
   {
    "id": "p002",
+   "block": 1,
    "desc": {
     "id": "d066",
     "text": "Clear and direct, with a rising inflection at the end. The pacing is moderate, and the tone carries a hint of exasperation."
@@ -526,6 +560,7 @@
   },
   {
    "id": "p003",
+   "block": 0,
    "desc": {
     "id": "d067",
     "text": "Soft, breathy, and slow-paced, as if hesitating before asking a difficult question."
@@ -543,6 +578,7 @@
   },
   {
    "id": "p004",
+   "block": 1,
    "desc": {
     "id": "d068",
     "text": "Light, breathy, and slightly rushed; includes a giggle, conveying genuine enthusiasm."
@@ -560,6 +596,7 @@
   },
   {
    "id": "p005",
+   "block": 0,
    "desc": {
     "id": "d069",
     "text": "The voice is soft, with a slow pace and a hesitant tone. There's a subtle breathiness and a questioning inflection, especially at the end."
@@ -577,6 +614,7 @@
   },
   {
    "id": "p006",
+   "block": 1,
    "desc": {
     "id": "d070",
     "text": "The tone is soft and inviting, with a slow, gentle pace. A light, almost breathy quality and a subtle upward inflection at the end convey sincerity and openness."
@@ -594,6 +632,7 @@
   },
   {
    "id": "p007",
+   "block": 0,
    "desc": {
     "id": "d071",
     "text": "Soft and gentle tone, slow pace, clear articulation, no notable non-verbal sounds."
@@ -611,6 +650,7 @@
   },
   {
    "id": "p008",
+   "block": 1,
    "desc": {
     "id": "d072",
     "text": "High-pitched and urgent, delivered in a rapid, emotionally charged tone."
@@ -628,6 +668,7 @@
   },
   {
    "id": "p009",
+   "block": 0,
    "desc": {
     "id": "d073",
     "text": "Fast-paced and agitated, with a rough, informal tone and a clipped delivery. There's a sharp rise in pitch at the beginning, and the sentence trails off abruptly."
@@ -645,6 +686,7 @@
   },
   {
    "id": "p010",
+   "block": 1,
    "desc": {
     "id": "d074",
     "text": "Gentle and hesitant, with a rising inflection suggesting a question. The pace is moderate, with slight pauses indicating thoughtfulness."
@@ -662,6 +704,7 @@
   },
   {
    "id": "p011",
+   "block": -1,
    "desc": {
     "id": "d075",
     "text": "Conversational and soothing, with a moderate pace and a slight rise in pitch at the end, indicating encouragement."
@@ -679,6 +722,7 @@
   },
   {
    "id": "p012",
+   "block": -1,
    "desc": {
     "id": "d076",
     "text": "Fast-paced and high-pitched, with overlapping dialogue and a sense of urgency."
@@ -696,6 +740,7 @@
   },
   {
    "id": "p013",
+   "block": 0,
    "desc": {
     "id": "d077",
     "text": "The tone is theatrical and sarcastic, with a measured, deliberate pace and a subtle chuckle at the end."
@@ -713,6 +758,7 @@
   },
   {
    "id": "p014",
+   "block": 1,
    "desc": {
     "id": "d078",
     "text": "Fast-paced, with a slightly whiny tone and a breathy, self-conscious quality. The delivery is abrupt and cut-off, suggesting nervousness or impatience."
@@ -730,6 +776,7 @@
   },
   {
    "id": "p015",
+   "block": 0,
    "desc": {
     "id": "d079",
     "text": "Fast-paced and insistent, with a tone that emphasizes immediacy and mild frustration."
@@ -747,6 +794,7 @@
   },
   {
    "id": "p016",
+   "block": 1,
    "desc": {
     "id": "d080",
     "text": "Slow, low-pitched, and breathy with a trailing intonation, suggesting hesitation."
@@ -764,6 +812,7 @@
   },
   {
    "id": "p017",
+   "block": 0,
    "desc": {
     "id": "d081",
     "text": "Warm and gentle tone with a slow, reassuring pace. A soft chuckle is audible at the start, indicating approachability."
@@ -781,6 +830,7 @@
   },
   {
    "id": "p018",
+   "block": 1,
    "desc": {
     "id": "d082",
     "text": "Low-pitched, slow-paced, and subdued with a sighing quality, conveying a lack of energy."
@@ -798,6 +848,7 @@
   },
   {
    "id": "p019",
+   "block": 0,
    "desc": {
     "id": "d083",
     "text": "The tone is casual and conversational, with a rising intonation at the end, indicating a question. The pace is relaxed and natural."
@@ -815,6 +866,7 @@
   },
   {
    "id": "p020",
+   "block": 1,
    "desc": {
     "id": "d084",
     "text": "Smooth and slightly boastful, with a moderate pace and a casual, conversational tone. A low chuckle is heard at the end."
@@ -832,6 +884,7 @@
   },
   {
    "id": "p021",
+   "block": 0,
    "desc": {
     "id": "d085",
     "text": "The delivery is quick and clipped, with a rising inflection at the end of the first line. There's a sharp, almost sarcastic tone in the second sentence, accompanied by a short, breathy chuckle."
@@ -849,6 +902,7 @@
   },
   {
    "id": "p022",
+   "block": 1,
    "desc": {
     "id": "d086",
     "text": "A weary, conversational tone with a sigh at the beginning, slightly self-mocking, and unhurried pacing."
@@ -866,6 +920,7 @@
   },
   {
    "id": "p023",
+   "block": -1,
    "desc": {
     "id": "d087",
     "text": "Slow, deliberate, with a subtle hesitation and a low, thoughtful tone. A soft throat clear precedes the line, adding to the sense of unease."
@@ -883,6 +938,7 @@
   },
   {
    "id": "p024",
+   "block": -1,
    "desc": {
     "id": "d088",
     "text": "Soft, breathy tone with a slow pace; includes a sigh and gentle emphasis on emotion"

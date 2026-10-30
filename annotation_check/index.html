@@ -89,7 +89,7 @@ const store = {
   set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} },
   del(k){ try{ localStorage.removeItem(k); }catch(e){} }
 };
-const SKEY = "annot_check_v1_state";
+const SKEY = "annot_check_v2_state";
 let DATA = null, S = null;
 const $ = (h)=>{ const t=document.createElement("template"); t.innerHTML=h.trim(); return t.content.firstChild; };
 const esc = (s)=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -122,7 +122,7 @@ function startView(){
   const v = $(`<div>
     <h1>Speaking style study</h1>
     <p>You will listen to short recordings of actors and judge <b>how</b> each line is spoken, not what is said.
-    The study has two parts and takes about 35 minutes. Please use headphones in a quiet room.</p>
+    The study has two parts and takes about 20 minutes. Please use headphones in a quiet room.</p>
     <div class="card">
       <p><b>Part 1.</b> For each clip, describe its delivery on six attributes. Then rate how well a written
       description matches the clip. Some descriptions belong to the clip and some do not.</p>
@@ -140,12 +140,15 @@ function startView(){
   v.querySelector("#go").onclick = ()=>{
     const rater = v.querySelector("#rater").value.trim(), eng = v.querySelector("#eng").value, hp = v.querySelector("#hp").checked;
     if (!rater || !eng || !hp){ v.querySelector("#h").textContent = "Please fill in all fields and confirm headphones."; return; }
-    const q = new URLSearchParams(location.search).get("list");
-    const list = (q === "0" || q === "1") ? "L"+q : (Math.random() < 0.5 ? "L0" : "L1");
+    const gq = new URLSearchParams(location.search).get("g");
+    const g = /^[0-3]$/.test(gq||"") ? +gq : Math.floor(Math.random()*4);
+    const block = g >> 1, list = "L" + (g & 1);
     let seed = 0; for (const c of rater+Date.now()) seed = (seed*31 + c.charCodeAt(0)) >>> 0;
     let x = seed || 1; const rnd = ()=>{ x ^= x<<13; x>>>=0; x ^= x>>17; x ^= x<<5; x>>>=0; return x/4294967296; };
-    S = { stage:"guide", uuid:uuid(), rater, eng, list, started:new Date().toISOString(),
-          aOrder: shuffle(DATA.A.map((_,i)=>i), rnd), bOrder: shuffle(DATA.B.map((_,i)=>i), rnd),
+    const aIdx = DATA.A.map((x,i)=>x.block===block?i:-1).filter(i=>i>=0);
+    const bIdx = DATA.B.map((x,i)=>(x.block===block||x.block===-1)?i:-1).filter(i=>i>=0);
+    S = { stage:"guide", uuid:uuid(), rater, eng, list, block, g, started:new Date().toISOString(),
+          aOrder: shuffle(aIdx, rnd), bOrder: shuffle(bIdx, rnd),
           bFlip: DATA.B.map(()=> rnd() < 0.5), ai:0, bi:0, A:{}, B:{} };
     save(); render(); window.scrollTo(0,0);
   };
@@ -163,7 +166,7 @@ function guideView(){
 }
 
 function aView(){
-  const n = DATA.A.length, item = DATA.A[S.aOrder[S.ai]], rec = S.A[item.id] || {attrs:{}, step:1};
+  const n = S.aOrder.length, item = DATA.A[S.aOrder[S.ai]], rec = S.A[item.id] || {attrs:{}, step:1};
   S.A[item.id] = rec; rec.t0 = rec.t0 || Date.now();
   const desc = item.desc[S.list];
   let attrsHtml = "";
@@ -224,7 +227,7 @@ function bIntroView(){
 }
 
 function bView(){
-  const n = DATA.B.length, idx = S.bOrder[S.bi], item = DATA.B[idx];
+  const n = S.bOrder.length, idx = S.bOrder[S.bi], item = DATA.B[idx];
   const clips = S.bFlip[idx] ? [item.clips[1], item.clips[0]] : [item.clips[0], item.clips[1]];
   const rec = S.B[item.id] || {heard:{}}; S.B[item.id] = rec; rec.t0 = rec.t0 || Date.now();
   rec.left = clips[0].id; rec.right = clips[1].id;
@@ -260,6 +263,7 @@ function sessionJSON(){
   const trials = [{id:"META", type:"mushra", responses:[
     {stimulus:"rater", score:0, time:0, comment:S.rater}, {stimulus:"english", score:0, time:0, comment:S.eng},
     {stimulus:"list", score:(S.list==="L1"?1:0), time:0, comment:S.list},
+    {stimulus:"block", score:S.block, time:0, comment:"g"+S.g},
     {stimulus:"started", score:0, time:0, comment:S.started}, {stimulus:"finished", score:0, time:0, comment:S.finished||""}]}];
   for (const [cid, r] of Object.entries(S.A)){
     if (!r.done) continue;

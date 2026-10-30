@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Speaking Style Study</title>
+<style>
+:root{
+  --bg:#f7f7f5; --card:#ffffff; --ink:#1d1d1b; --muted:#666660; --line:#deded8;
+  --accent:#2f5d8a; --accent-ink:#ffffff; --chip:#f0f0ec; --chip-on:#2f5d8a; --warn:#9a5b00; --ok:#2e7d4f;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161615; --card:#1f1f1d; --ink:#ecece8; --muted:#a3a39c; --line:#353532;
+    --accent:#7fb0e0; --accent-ink:#0f1a26; --chip:#2a2a27; --chip-on:#7fb0e0; --warn:#e0a04a; --ok:#6cc596;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161615; --card:#1f1f1d; --ink:#ecece8; --muted:#a3a39c; --line:#353532;
+  --accent:#7fb0e0; --accent-ink:#0f1a26; --chip:#2a2a27; --chip-on:#7fb0e0; --warn:#e0a04a; --ok:#6cc596;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:760px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:1.5rem;margin:0 0 8px} h2{font-size:1.15rem;margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:16px 0}
+.muted{color:var(--muted)} .small{font-size:.875rem}
+.progress{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin:4px 0 12px}
+.progress>div{height:100%;background:var(--accent);width:0}
+button{font:inherit;border-radius:8px;border:1px solid var(--line);background:var(--chip);color:var(--ink);padding:8px 14px;cursor:pointer}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.attr{margin:14px 0}
+.attr .name{font-weight:600;margin-bottom:6px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--chip);border:1px solid var(--line);cursor:pointer;user-select:none}
+.chips input:checked+span{background:var(--chip-on);color:var(--accent-ink);border-color:var(--chip-on)}
+.chips input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.chips input:disabled+span{cursor:default}
+.desc{font-size:1.05rem;padding:14px 16px;border-left:4px solid var(--accent);background:var(--chip);border-radius:6px;margin:8px 0 12px}
+audio{width:100%;margin:6px 0}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:560px){.pair{grid-template-columns:1fr}}
+.clipbox{border:1px solid var(--line);border-radius:10px;padding:12px}
+.clipbox.chosen{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+.hint{color:var(--warn);font-size:.875rem;min-height:1.3em}
+table.def{border-collapse:collapse;width:100%;font-size:.9rem}
+table.def td{border-top:1px solid var(--line);padding:6px 8px;vertical-align:top}
+table.def td:first-child{font-weight:600;white-space:nowrap}
+input[type=text],select{font:inherit;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);width:100%;max-width:360px}
+details summary{cursor:pointer;color:var(--accent)}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.scale span{text-align:center;width:100%}
+.scale-ends{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);margin-top:4px}
+.locked{opacity:.75}
+.ok{color:var(--ok)}
+</style>
+</head>
+<body>
+<main id="app"><p class="muted">Loading…</p></main>
+<script>
+"use strict";
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbzRh7fJetyWXkmCOOHo78fk4LiXad6OQRCX6DsrbMWcRVSFKeH8mMy6gQCCvB_tDJm-Xg/exec";
+const TEST_ID = "ANNOT_CHECK_v1";
+const ATTR_LABEL = {speed:"Speaking rate", tone:"Tone", arousal:"Energy (arousal)", valence:"Valence",
+                    pauses:"Pauses", vocal_effort:"Vocal effort"};
+const DEFS = {
+  speed:"Overall speaking rate of the utterance.",
+  tone:"The overall character of the delivery. Pick the closest group.",
+  arousal:"How activated or energetic the delivery is, from calm/subdued (low) to excited/intense (high).",
+  valence:"Whether the delivery sounds negative, neutral or positive in feeling.",
+  pauses:"How much the speaker pauses or hesitates within the utterance.",
+  vocal_effort:"How the voice is produced: whispered, breathy, natural (relaxed, conversational), clear (crisp, well-articulated), projected (raised, carrying voice), shouted."
+};
+const TONE_DEFS = {
+  serious:"serious, thoughtful, reflective, somber, resigned, disappointed, sad",
+  expressive:"enthusiastic, happy, cheerful, warm, hopeful, surprised, proud, passionate",
+  playful:"playful, teasing, flirtatious, suggestive",
+  annoyed:"annoyed, angry, sarcastic, disgusted, defiant, skeptical, agitated",
+  flat:"flat, monotone, informative, announcing, reading aloud",
+  question:"questioning, curious, confused, doubtful, suspicious",
+  tense:"tense, pleading, hesitant, fearful, worried, anxious, desperate, urgent"
+};
+const store = {
+  get(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } },
+  set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} },
+  del(k){ try{ localStorage.removeItem(k); }catch(e){} }
+};
+const SKEY = "annot_check_v1_state";
+let DATA = null, S = null;
+const $ = (h)=>{ const t=document.createElement("template"); t.innerHTML=h.trim(); return t.content.firstChild; };
+const esc = (s)=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function shuffle(a, rnd){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(rnd()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function uuid(){ return (crypto.randomUUID ? crypto.randomUUID() : "u"+Date.now()+Math.random().toString(16).slice(2)); }
+function save(){ store.set(SKEY, S); }
+
+function defsTable(){
+  let h = '<table class="def">';
+  for (const a of Object.keys(ATTR_LABEL)){
+    let vals = DATA.vocab[a].join(" · ");
+    h += `<tr><td>${ATTR_LABEL[a]}</td><td>${esc(DEFS[a])}<br><span class="muted">${esc(vals)}</span></td></tr>`;
+  }
+  h += '</table><h2 style="margin-top:14px">Tone groups</h2><table class="def">';
+  for (const [g,d] of Object.entries(TONE_DEFS)) h += `<tr><td>${g}</td><td>${esc(d)}</td></tr>`;
+  return h + "</table>";
+}
+
+function render(){
+  const app = document.getElementById("app"); app.innerHTML = "";
+  if (!S || S.stage === "start") return app.append(startView());
+  if (S.stage === "guide") return app.append(guideView());
+  if (S.stage === "A") return app.append(aView());
+  if (S.stage === "Bintro") return app.append(bIntroView());
+  if (S.stage === "B") return app.append(bView());
+  if (S.stage === "done") return app.append(doneView());
+}
+
+function startView(){
+  const v = $(`<div>
+    <h1>Speaking style study</h1>
+    <p>You will listen to short recordings of actors and judge <b>how</b> each line is spoken, not what is said.
+    The study has two parts and takes about 35 minutes. Please use headphones in a quiet room.</p>
+    <div class="card">
+      <p><b>Part 1.</b> For each clip, describe its delivery on six attributes. Then rate how well a written
+      description matches the clip. Some descriptions belong to the clip and some do not.</p>
+      <p><b>Part 2.</b> Read a description of a speaking style and choose which of two clips matches it better.</p>
+      <p class="muted small">Your answers are stored anonymously under the ID you enter below and used only for research.</p>
+    </div>
+    <div class="card">
+      <label>Your name or initials<br><input type="text" id="rater" autocomplete="off"></label>
+      <p><label>English proficiency<br><select id="eng">
+        <option value="">Select…</option><option>native</option><option>fluent</option><option>intermediate</option></select></label></p>
+      <p><label><input type="checkbox" id="hp"> I am wearing headphones</label></p>
+      <div class="hint" id="h"></div>
+      <button class="primary" id="go">Continue</button>
+    </div></div>`);
+  v.querySelector("#go").onclick = ()=>{
+    const rater = v.querySelector("#rater").value.trim(), eng = v.querySelector("#eng").value, hp = v.querySelector("#hp").checked;
+    if (!rater || !eng || !hp){ v.querySelector("#h").textContent = "Please fill in all fields and confirm headphones."; return; }
+    const q = new URLSearchParams(location.search).get("list");
+    const list = (q === "0" || q === "1") ? "L"+q : (Math.random() < 0.5 ? "L0" : "L1");
+    let seed = 0; for (const c of rater+Date.now()) seed = (seed*31 + c.charCodeAt(0)) >>> 0;
+    let x = seed || 1; const rnd = ()=>{ x ^= x<<13; x>>>=0; x ^= x>>17; x ^= x<<5; x>>>=0; return x/4294967296; };
+    S = { stage:"guide", uuid:uuid(), rater, eng, list, started:new Date().toISOString(),
+          aOrder: shuffle(DATA.A.map((_,i)=>i), rnd), bOrder: shuffle(DATA.B.map((_,i)=>i), rnd),
+          bFlip: DATA.B.map(()=> rnd() < 0.5), ai:0, bi:0, A:{}, B:{} };
+    save(); render(); window.scrollTo(0,0);
+  };
+  return v;
+}
+
+function guideView(){
+  const v = $(`<div><h1>Attribute guide</h1>
+    <p>In Part 1 you describe each clip with these six attributes. Judge the <b>delivery</b> only: ignore the words,
+    the speaker's voice type, gender or accent. When unsure, pick the closest option. This guide stays available
+    on every page.</p><div class="card">${defsTable()}</div>
+    <button class="primary" id="go">Start Part 1</button></div>`);
+  v.querySelector("#go").onclick = ()=>{ S.stage="A"; save(); render(); window.scrollTo(0,0); };
+  return v;
+}
+
+function aView(){
+  const n = DATA.A.length, item = DATA.A[S.aOrder[S.ai]], rec = S.A[item.id] || {attrs:{}, step:1};
+  S.A[item.id] = rec; rec.t0 = rec.t0 || Date.now();
+  const desc = item.desc[S.list];
+  let attrsHtml = "";
+  for (const a of Object.keys(ATTR_LABEL)){
+    attrsHtml += `<div class="attr"><div class="name">${ATTR_LABEL[a]}</div><div class="chips">` +
+      DATA.vocab[a].map(val=>`<label><input type="radio" name="${a}" value="${val}" ${rec.attrs[a]===val?"checked":""} ${rec.step>1?"disabled":""}><span>${val}</span></label>`).join("") +
+      `</div></div>`;
+  }
+  const v = $(`<div>
+    <div class="row" style="justify-content:space-between"><span class="muted small">Part 1 · clip ${S.ai+1} of ${n}</span>
+      <details class="small"><summary>Attribute guide</summary><div class="card">${defsTable()}</div></details></div>
+    <div class="progress"><div style="width:${100*S.ai/n}%"></div></div>
+    <div class="card"><h2>Listen to the clip</h2>
+      <audio controls preload="auto" src="${item.audio}"></audio>
+      <div class="muted small">Play it to the end at least once. You may replay it as often as you like.</div></div>
+    <div class="card ${rec.step>1?"locked":""}"><h2>Step 1 · Describe the delivery</h2>${attrsHtml}
+      <div class="hint" id="h1"></div>
+      ${rec.step===1?'<button class="primary" id="next1">Lock answers and continue</button>':'<div class="muted small">Answers locked.</div>'}</div>
+    <div id="step2"></div></div>`);
+  const au = v.querySelector("audio");
+  au.addEventListener("ended", ()=>{ rec.heard = true; save(); });
+  au.addEventListener("play", ()=>{ rec.plays = (rec.plays||0)+1; });
+  v.querySelectorAll("input[type=radio]").forEach(r=> r.onchange = ()=>{ rec.attrs[r.name]=r.value; save(); });
+  const showStep2 = ()=>{
+    const s2 = $(`<div class="card"><h2>Step 2 · Does this description match the clip?</h2>
+      <div class="desc">${esc(desc.text)}</div>
+      <div class="scale chips">${[1,2,3,4,5].map(k=>`<label><input type="radio" name="match" value="${k}" ${rec.match==k?"checked":""}><span>${k}</span></label>`).join("")}</div>
+      <div class="scale-ends"><span>1 · does not match at all</span><span>5 · matches perfectly</span></div>
+      <div class="hint" id="h2"></div>
+      <button class="primary" id="next2">${S.ai+1<n?"Next clip":"Finish Part 1"}</button></div>`);
+    s2.querySelectorAll("input[name=match]").forEach(r=> r.onchange = ()=>{ rec.match = +r.value; save(); });
+    s2.querySelector("#next2").onclick = ()=>{
+      if (!rec.match){ s2.querySelector("#h2").textContent = "Please choose a rating."; return; }
+      rec.desc_id = desc.id; rec.ms = Date.now() - rec.t0; rec.done = true;
+      S.ai++; if (S.ai >= n) S.stage = "Bintro"; save(); render(); window.scrollTo(0,0);
+    };
+    v.querySelector("#step2").append(s2);
+  };
+  if (rec.step === 1){
+    v.querySelector("#next1").onclick = ()=>{
+      const miss = Object.keys(ATTR_LABEL).filter(a=>!rec.attrs[a]);
+      if (!rec.heard){ v.querySelector("#h1").textContent = "Please play the clip to the end first."; return; }
+      if (miss.length){ v.querySelector("#h1").textContent = "Please answer: " + miss.map(a=>ATTR_LABEL[a]).join(", ") + "."; return; }
+      rec.step = 2; rec.ms_attrs = Date.now() - rec.t0; save(); render();
+    };
+  } else showStep2();
+  return v;
+}
+
+function bIntroView(){
+  const v = $(`<div><h1>Part 2</h1><div class="card">
+    <p>Each page shows a description of a speaking style and two clips from the same speaker.
+    Listen to both clips to the end, then choose the one whose <b>delivery</b> matches the description better.
+    Ignore the words; judge only how the line is spoken. If both match equally, pick the slightly better one.</p>
+    <button class="primary" id="go">Start Part 2</button></div></div>`);
+  v.querySelector("#go").onclick = ()=>{ S.stage="B"; save(); render(); window.scrollTo(0,0); };
+  return v;
+}
+
+function bView(){
+  const n = DATA.B.length, idx = S.bOrder[S.bi], item = DATA.B[idx];
+  const clips = S.bFlip[idx] ? [item.clips[1], item.clips[0]] : [item.clips[0], item.clips[1]];
+  const rec = S.B[item.id] || {heard:{}}; S.B[item.id] = rec; rec.t0 = rec.t0 || Date.now();
+  rec.left = clips[0].id; rec.right = clips[1].id;
+  const v = $(`<div>
+    <div class="muted small">Part 2 · pair ${S.bi+1} of ${n}</div>
+    <div class="progress"><div style="width:${100*S.bi/n}%"></div></div>
+    <div class="card"><h2>Target style</h2><div class="desc">${esc(item.desc.text)}</div>
+      <div class="pair">${clips.map((c,k)=>`<div class="clipbox ${rec.choice===c.id?"chosen":""}" data-k="${k}">
+        <b>Clip ${k===0?"A":"B"}</b><audio controls preload="auto" src="${c.audio}"></audio>
+        <button data-pick="${c.id}">Clip ${k===0?"A":"B"} matches better</button></div>`).join("")}</div>
+      <div class="hint" id="h"></div>
+      <button class="primary" id="next">${S.bi+1<n?"Next pair":"Finish"}</button></div></div>`);
+  v.querySelectorAll("audio").forEach((au,k)=> au.addEventListener("ended", ()=>{ rec.heard[clips[k].id]=true; save(); }));
+  v.querySelectorAll("button[data-pick]").forEach(b=> b.onclick = ()=>{
+    if (!rec.heard[clips[0].id] || !rec.heard[clips[1].id]){ v.querySelector("#h").textContent = "Please play both clips to the end first."; return; }
+    rec.choice = b.dataset.pick; save();
+    v.querySelectorAll(".clipbox").forEach(bx=> bx.classList.toggle("chosen", clips[+bx.dataset.k].id === rec.choice));
+    v.querySelector("#h").textContent = "";
+  });
+  v.querySelector("#next").onclick = ()=>{
+    if (!rec.choice){ v.querySelector("#h").textContent = "Please choose a clip."; return; }
+    rec.desc_id = item.desc.id; rec.ms = Date.now() - rec.t0;
+    S.bi++; if (S.bi >= n){ S.stage = "done"; S.finished = new Date().toISOString(); } save(); render(); window.scrollTo(0,0);
+  };
+  return v;
+}
+
+function sessionJSON(){
+  // webMUSHRA-shaped payload for the existing Apps Script endpoint (tab "mushra", 8 columns, no participant
+  // fields). Every rating_score is NUMERIC (vocab index / clip number) so Google's per-column type inference
+  // never blanks values in this column; text goes to rating_comment.
+  const num = (cid)=> parseInt(String(cid).slice(1), 10);
+  const trials = [{id:"META", type:"mushra", responses:[
+    {stimulus:"rater", score:0, time:0, comment:S.rater}, {stimulus:"english", score:0, time:0, comment:S.eng},
+    {stimulus:"list", score:(S.list==="L1"?1:0), time:0, comment:S.list},
+    {stimulus:"started", score:0, time:0, comment:S.started}, {stimulus:"finished", score:0, time:0, comment:S.finished||""}]}];
+  for (const [cid, r] of Object.entries(S.A)){
+    if (!r.done) continue;
+    const resp = Object.keys(ATTR_LABEL).map(a=>({stimulus:a, score:DATA.vocab[a].indexOf(r.attrs[a]), time:r.ms_attrs||0, comment:r.attrs[a]}));
+    resp.push({stimulus:"desc_match", score:r.match, time:r.ms, comment:r.desc_id});
+    resp.push({stimulus:"plays", score:r.plays||0, time:0, comment:""});
+    trials.push({id:"A__"+cid, type:"mushra", responses:resp});
+  }
+  for (const [pid, r] of Object.entries(S.B)){
+    if (!r.choice) continue;
+    trials.push({id:"B__"+pid, type:"mushra", responses:[
+      {stimulus:"choice", score:num(r.choice), time:r.ms, comment:r.desc_id},
+      {stimulus:"left", score:num(r.left), time:0, comment:""}, {stimulus:"right", score:num(r.right), time:0, comment:""}]});
+  }
+  return {testId:TEST_ID, uuid:S.uuid, participant:{name:[], response:[]}, trials};
+}
+function toCSV(s){
+  const rows = [["session_test_id"].concat(s.participant.name, ["session_uuid","trial_id","rating_stimulus","rating_score","rating_time","rating_comment"])];
+  for (const t of s.trials) for (const r of t.responses)
+    rows.push([s.testId].concat(s.participant.response, [s.uuid, t.id, r.stimulus, r.score, r.time, r.comment]));
+  return rows.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(",")).join("\n");
+}
+function send(){
+  const s = sessionJSON();
+  return fetch(ENDPOINT, {method:"POST", mode:"no-cors", keepalive:true,
+    headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:"sessionJSON="+encodeURIComponent(JSON.stringify(s))});
+}
+function doneView(){
+  const v = $(`<div><h1>Thank you!</h1><div class="card">
+    <p id="st">Sending your answers…</p>
+    <p class="muted small">If sending fails, download your answers and email the file to the person who invited you.</p>
+    <div class="row"><button id="dl">Download answers (CSV)</button><button id="re">Send again</button></div></div></div>`);
+  const st = v.querySelector("#st");
+  const go = ()=> send().then(()=>{ st.innerHTML = '<span class="ok">Your answers were sent. You can close this page.</span>'; S.sent = true; save(); })
+                        .catch(()=>{ st.textContent = "Sending failed. Please download your answers below."; });
+  if (!S.sent) go(); else st.innerHTML = '<span class="ok">Your answers were sent. You can close this page.</span>';
+  v.querySelector("#re").onclick = go;
+  v.querySelector("#dl").onclick = ()=>{
+    const blob = new Blob([toCSV(sessionJSON())], {type:"text/csv"});
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "annot_"+S.uuid+".csv"; a.click();
+  };
+  return v;
+}
+
+fetch("items.json").then(r=>r.json()).then(d=>{
+  DATA = d; S = store.get(SKEY);
+  if (S && S.stage === "done" && S.sent && new URLSearchParams(location.search).has("new")) { store.del(SKEY); S = null; }
+  render();
+}).catch(()=>{ document.getElementById("app").innerHTML = "<p>Could not load the study. Please reload the page.</p>"; });
+</script>
+</body>
+</html>

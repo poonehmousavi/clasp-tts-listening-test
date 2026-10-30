@@ -553,5 +553,37 @@
    "ret": null
   }
  ],
- "design": 4
+ "design": 5,
+ "practice": [
+  {
+   "id": "p1",
+   "audio": "audio/p1.mp3",
+   "desc": {
+    "L0": {
+     "id": "p1",
+     "text": "The speech is slow and low-pitched, with a weary, confessional tone. There's a sense of emotional gravity in the delivery."
+    },
+    "L1": {
+     "id": "p1",
+     "text": "The speech is slow and low-pitched, with a weary, confessional tone. There's a sense of emotional gravity in the delivery."
+    }
+   },
+   "ret": null
+  },
+  {
+   "id": "p2",
+   "audio": "audio/p2.mp3",
+   "desc": {
+    "L0": {
+     "id": "p2",
+     "text": "Soft, breathy, and gently melodic with a slow, deliberate pace and a tender tone."
+    },
+    "L1": {
+     "id": "p2",
+     "text": "Soft, breathy, and gently melodic with a slow, deliberate pace and a tender tone."
+    }
+   },
+   "ret": null
+  }
+ ]
 }

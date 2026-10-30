@@ -55,6 +55,12 @@ details summary{cursor:pointer;color:var(--accent)}
 .scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
 .scale span{text-align:center;width:100%}
 .scale-ends{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);margin-top:4px}
+.chips.stack{flex-direction:column}
+.chips.stack label{display:block}
+.chips.stack span{display:block;border-radius:8px;padding:6px 12px}
+.chips.stack small{display:block;font-size:.8rem;opacity:.8}
+.attr .hintline{font-size:.875rem;color:var(--muted);margin:-4px 0 6px}
+.banner{background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:.9rem;margin-bottom:8px}
 .locked{opacity:.75}
 .ok{color:var(--ok)}
 </style>
@@ -84,12 +90,29 @@ const TONE_DEFS = {
   question:"questioning, curious, confused, doubtful, suspicious",
   tense:"tense, pleading, hesitant, fearful, worried, anxious, desperate, urgent"
 };
+const ATTR_HINT = {
+  speed:"How fast the words come overall.",
+  tone:"The overall character of the delivery. Pick the closest group.",
+  arousal:"How energetic: calm or subdued (low) to excited or intense (high).",
+  valence:"Does the feeling sound negative, neutral or positive?",
+  pauses:"How much the speaker pauses or hesitates within the line.",
+  vocal_effort:"How the voice is produced."
+};
+const EFFORT_DEFS = {
+  whispered:"almost no voice, just air",
+  breathy:"soft, airy voice",
+  natural:"relaxed, everyday conversation",
+  clear:"crisp, carefully articulated",
+  projected:"raised voice that carries",
+  shouted:"yelling or screaming"
+};
+const STACK = {tone:TONE_DEFS, vocal_effort:EFFORT_DEFS};
 const store = {
   get(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } },
   set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} },
   del(k){ try{ localStorage.removeItem(k); }catch(e){} }
 };
-const SKEY = "annot_check_v4_state";
+const SKEY = "annot_check_v5_state";
 let DATA = null, S = null;
 const $ = (h)=>{ const t=document.createElement("template"); t.innerHTML=h.trim(); return t.content.firstChild; };
 const esc = (s)=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -112,7 +135,8 @@ function render(){
   const app = document.getElementById("app"); app.innerHTML = "";
   if (!S || S.stage === "start") return app.append(startView());
   if (S.stage === "guide") return app.append(guideView());
-  if (S.stage === "A") return app.append(aView());
+  if (S.stage === "P" || S.stage === "A") return app.append(aView());
+  if (S.stage === "ready") return app.append(readyView());
   if (S.stage === "done") return app.append(doneView());
 }
 
@@ -120,7 +144,7 @@ function startView(){
   const v = $(`<div>
     <h1>Speaking style study</h1>
     <p>You will listen to short recordings of actors and judge <b>how</b> each line is spoken, not what is said.
-    There are 16 clips and the study takes about 15 minutes. Please use headphones in a quiet room.</p>
+    There are 2 practice clips and 16 study clips, and it takes about 20 minutes. Please use headphones in a quiet room.</p>
     <div class="card">
       <p>Each clip has two short steps:</p>
       <p><b>Step 1.</b> Describe the clip's delivery on six attributes.</p>
@@ -146,7 +170,7 @@ function startView(){
     let x = seed || 1; const rnd = ()=>{ x ^= x<<13; x>>>=0; x ^= x>>17; x ^= x<<5; x>>>=0; return x/4294967296; };
     const aIdx = DATA.A.map((x,i)=>x.block===block?i:-1).filter(i=>i>=0);
     S = { stage:"guide", uuid:uuid(), rater, eng, list, block, g, started:new Date().toISOString(),
-          aOrder: shuffle(aIdx, rnd), rFlip: DATA.A.map(()=> rnd() < 0.5), ai:0, A:{} };
+          aOrder: shuffle(aIdx, rnd), rFlip: DATA.A.map(()=> rnd() < 0.5), ai:0, A:{}, pi:0, P:{} };
     save(); sendStart(); render(); window.scrollTo(0,0);
   };
   return v;
@@ -172,29 +196,49 @@ function sendStart(){
 }
 
 function guideView(){
-  const v = $(`<div><h1>Attribute guide</h1>
-    <p>In step 1 you describe each clip with these six attributes. Judge the <b>delivery</b> only: ignore the words,
-    the speaker's voice type, gender or accent. When unsure, pick the closest option. This guide stays available
-    on every page.</p><div class="card">${defsTable()}</div>
-    <button class="primary" id="go">Start</button></div>`);
+  const v = $(`<div><h1>How to judge a clip</h1>
+    <div class="card">
+      <p><b>Judge the delivery only.</b> Ignore the words and the speaker's voice type, gender or accent.</p>
+      <p><b>There are no right or wrong answers.</b> We want what you hear, and people often hear clips differently.</p>
+      <p><b>Don't overthink it.</b> Go with your first impression and, when unsure, pick the closest option. Most clips take about a minute.</p>
+      <p><b>You don't need to memorize anything.</b> Short explanations appear next to every question.</p>
+    </div>
+    <p>Next, you will try 2 practice clips. They are not scored, so use them to get used to the questions.</p>
+    <details class="small"><summary>See the full attribute guide</summary><div class="card">${defsTable()}</div></details>
+    <p><button class="primary" id="go">Start practice</button></p></div>`);
+  v.querySelector("#go").onclick = ()=>{ S.stage="P"; save(); render(); window.scrollTo(0,0); };
+  return v;
+}
+
+function readyView(){
+  const v = $(`<div><h1>Practice finished</h1>
+    <div class="card">
+      <p>Those answers were not saved. We don't show correct answers because there are none: we are interested in what you hear.</p>
+      <p>Next are the 16 study clips. Once you lock in your answers for a clip, you can't change them.</p>
+    </div>
+    <button class="primary" id="go">Start the study</button></div>`);
   v.querySelector("#go").onclick = ()=>{ S.stage="A"; save(); render(); window.scrollTo(0,0); };
   return v;
 }
 
 function aView(){
-  const n = S.aOrder.length, item = DATA.A[S.aOrder[S.ai]], rec = S.A[item.id] || {attrs:{}, step:1};
-  S.A[item.id] = rec; rec.t0 = rec.t0 || Date.now();
+  const practice = S.stage === "P", pos = practice ? S.pi : S.ai, n = practice ? DATA.practice.length : S.aOrder.length;
+  const item = practice ? DATA.practice[S.pi] : DATA.A[S.aOrder[S.ai]], recs = practice ? S.P : S.A;
+  const rec = recs[item.id] || {attrs:{}, step:1};
+  recs[item.id] = rec; rec.t0 = rec.t0 || Date.now();
   const desc = item.desc[S.list];
   let attrsHtml = "";
   for (const a of Object.keys(ATTR_LABEL)){
-    attrsHtml += `<div class="attr"><div class="name">${ATTR_LABEL[a]}</div><div class="chips">` +
-      DATA.vocab[a].map(val=>`<label><input type="radio" name="${a}" value="${val}" ${rec.attrs[a]===val?"checked":""} ${rec.step>1?"disabled":""}><span>${val}</span></label>`).join("") +
+    const defs = STACK[a];
+    attrsHtml += `<div class="attr"><div class="name">${ATTR_LABEL[a]}</div><div class="hintline">${esc(ATTR_HINT[a])}</div><div class="chips ${defs?"stack":""}">` +
+      DATA.vocab[a].map(val=>`<label><input type="radio" name="${a}" value="${val}" ${rec.attrs[a]===val?"checked":""} ${rec.step>1?"disabled":""}><span>${val}${defs?`<small>${esc(defs[val])}</small>`:""}</span></label>`).join("") +
       `</div></div>`;
   }
   const v = $(`<div>
-    <div class="row" style="justify-content:space-between"><span class="muted small">Clip ${S.ai+1} of ${n}</span>
+    ${practice?'<div class="banner"><b>Practice.</b> This clip is not scored.</div>':""}
+    <div class="row" style="justify-content:space-between"><span class="muted small">${practice?"Practice clip":"Clip"} ${pos+1} of ${n}</span>
       <details class="small"><summary>Attribute guide</summary><div class="card">${defsTable()}</div></details></div>
-    <div class="progress"><div style="width:${100*S.ai/n}%"></div></div>
+    <div class="progress"><div style="width:${100*pos/n}%"></div></div>
     <div class="card"><h2>Listen to the clip</h2>
       <audio controls preload="auto" src="${item.audio}"></audio>
       <div class="muted small">Play it to the end at least once. You may replay it as often as you like.</div></div>
@@ -208,7 +252,8 @@ function aView(){
   v.querySelectorAll("input[type=radio]").forEach(r=> r.onchange = ()=>{ rec.attrs[r.name]=r.value; save(); });
   const finish = ()=>{
     rec.desc_id = desc.id; rec.ms = Date.now() - rec.t0; rec.done = true;
-    S.ai++; if (S.ai >= n){ S.stage = "done"; S.finished = new Date().toISOString(); }
+    if (practice){ S.pi++; if (S.pi >= n) S.stage = "ready"; }
+    else { S.ai++; if (S.ai >= n){ S.stage = "done"; S.finished = new Date().toISOString(); } }
     save(); render(); window.scrollTo(0,0);
   };
   const showStep2 = ()=>{
@@ -219,7 +264,7 @@ function aView(){
       <div class="scale-ends"><span>1 · does not match at all</span><span>5 · matches perfectly</span></div>
       <div class="hint" id="h2"></div>
       ${locked ? '<div class="muted small">Answer locked.</div>' :
-        `<button class="primary" id="next2">${item.ret ? "Continue to step 3" : (S.ai+1<n ? "Next clip" : "Finish")}</button>`}</div>`);
+        `<button class="primary" id="next2">${item.ret ? "Continue to step 3" : (pos+1<n ? "Next clip" : (practice ? "Finish practice" : "Finish"))}</button>`}</div>`);
     s2.querySelectorAll("input[name=match]").forEach(r=> r.onchange = ()=>{ rec.match = +r.value; save(); });
     if (!locked) s2.querySelector("#next2").onclick = ()=>{
       if (!rec.match){ s2.querySelector("#h2").textContent = "Please choose a rating."; return; }

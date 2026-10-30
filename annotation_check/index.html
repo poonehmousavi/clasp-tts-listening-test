@@ -89,7 +89,7 @@ const store = {
   set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} },
   del(k){ try{ localStorage.removeItem(k); }catch(e){} }
 };
-const SKEY = "annot_check_v2_state";
+const SKEY = "annot_check_v3_state";
 let DATA = null, S = null;
 const $ = (h)=>{ const t=document.createElement("template"); t.innerHTML=h.trim(); return t.content.firstChild; };
 const esc = (s)=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -113,8 +113,6 @@ function render(){
   if (!S || S.stage === "start") return app.append(startView());
   if (S.stage === "guide") return app.append(guideView());
   if (S.stage === "A") return app.append(aView());
-  if (S.stage === "Bintro") return app.append(bIntroView());
-  if (S.stage === "B") return app.append(bView());
   if (S.stage === "done") return app.append(doneView());
 }
 
@@ -122,11 +120,12 @@ function startView(){
   const v = $(`<div>
     <h1>Speaking style study</h1>
     <p>You will listen to short recordings of actors and judge <b>how</b> each line is spoken, not what is said.
-    The study has two parts and takes about 20 minutes. Please use headphones in a quiet room.</p>
+    There are 20 clips and the study takes about 20 to 25 minutes. Please use headphones in a quiet room.</p>
     <div class="card">
-      <p><b>Part 1.</b> For each clip, describe its delivery on six attributes. Then rate how well a written
-      description matches the clip. Some descriptions belong to the clip and some do not.</p>
-      <p><b>Part 2.</b> Read a description of a speaking style and choose which of two clips matches it better.</p>
+      <p>Each clip has up to three short steps:</p>
+      <p><b>Step 1.</b> Describe the clip's delivery on six attributes.</p>
+      <p><b>Step 2.</b> Rate how well a written description matches the clip. Some descriptions belong to the clip and some do not.</p>
+      <p><b>Step 3</b> (most clips). Read a description of a speaking style and choose which of two clips matches it better.</p>
       <p class="muted small">Your answers are stored anonymously under the ID you enter below and used only for research.</p>
     </div>
     <div class="card">
@@ -137,30 +136,48 @@ function startView(){
       <div class="hint" id="h"></div>
       <button class="primary" id="go">Continue</button>
     </div></div>`);
-  v.querySelector("#go").onclick = ()=>{
+  v.querySelector("#go").onclick = async ()=>{
     const rater = v.querySelector("#rater").value.trim(), eng = v.querySelector("#eng").value, hp = v.querySelector("#hp").checked;
     if (!rater || !eng || !hp){ v.querySelector("#h").textContent = "Please fill in all fields and confirm headphones."; return; }
+    const btn = v.querySelector("#go"); btn.disabled = true; btn.textContent = "Preparing…";
     const gq = new URLSearchParams(location.search).get("g");
-    const g = /^[0-3]$/.test(gq||"") ? +gq : Math.floor(Math.random()*4);
+    const g = /^[0-3]$/.test(gq||"") ? +gq : await pickVersion();
     const block = g >> 1, list = "L" + (g & 1);
     let seed = 0; for (const c of rater+Date.now()) seed = (seed*31 + c.charCodeAt(0)) >>> 0;
     let x = seed || 1; const rnd = ()=>{ x ^= x<<13; x>>>=0; x ^= x>>17; x ^= x<<5; x>>>=0; return x/4294967296; };
     const aIdx = DATA.A.map((x,i)=>x.block===block?i:-1).filter(i=>i>=0);
-    const bIdx = DATA.B.map((x,i)=>(x.block===block||x.block===-1)?i:-1).filter(i=>i>=0);
     S = { stage:"guide", uuid:uuid(), rater, eng, list, block, g, started:new Date().toISOString(),
-          aOrder: shuffle(aIdx, rnd), bOrder: shuffle(bIdx, rnd),
-          bFlip: DATA.B.map(()=> rnd() < 0.5), ai:0, bi:0, A:{}, B:{} };
-    save(); render(); window.scrollTo(0,0);
+          aOrder: shuffle(aIdx, rnd), rFlip: DATA.A.map(()=> rnd() < 0.5), ai:0, A:{} };
+    save(); sendStart(); render(); window.scrollTo(0,0);
   };
   return v;
 }
 
+// Least-used link version (sessions started so far, from the results endpoint); random tie-break.
+// Falls back to a uniformly random version if the endpoint does not answer within 5 s.
+async function pickVersion(){
+  try{
+    const ctl = new AbortController(); const t = setTimeout(()=>ctl.abort(), 5000);
+    const r = await fetch(ENDPOINT + "?annot_counts=1", {signal: ctl.signal}); clearTimeout(t);
+    const c = (await r.json()).counts;
+    const n = [0,1,2,3].map(k=> +c[String(k)] || 0), m = Math.min(...n);
+    const best = [0,1,2,3].filter(k=> n[k] === m);
+    return best[Math.floor(Math.random()*best.length)];
+  }catch(e){ return Math.floor(Math.random()*4); }
+}
+// Register the session (META rows only) at start, so raters starting at the same time are spread too.
+function sendStart(){
+  const s = sessionJSON(); s.trials = s.trials.filter(t=> t.id === "META");
+  fetch(ENDPOINT, {method:"POST", mode:"no-cors", keepalive:true,
+    headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:"sessionJSON="+encodeURIComponent(JSON.stringify(s))}).catch(()=>{});
+}
+
 function guideView(){
   const v = $(`<div><h1>Attribute guide</h1>
-    <p>In Part 1 you describe each clip with these six attributes. Judge the <b>delivery</b> only: ignore the words,
+    <p>In step 1 you describe each clip with these six attributes. Judge the <b>delivery</b> only: ignore the words,
     the speaker's voice type, gender or accent. When unsure, pick the closest option. This guide stays available
     on every page.</p><div class="card">${defsTable()}</div>
-    <button class="primary" id="go">Start Part 1</button></div>`);
+    <button class="primary" id="go">Start</button></div>`);
   v.querySelector("#go").onclick = ()=>{ S.stage="A"; save(); render(); window.scrollTo(0,0); };
   return v;
 }
@@ -176,7 +193,7 @@ function aView(){
       `</div></div>`;
   }
   const v = $(`<div>
-    <div class="row" style="justify-content:space-between"><span class="muted small">Part 1 · clip ${S.ai+1} of ${n}</span>
+    <div class="row" style="justify-content:space-between"><span class="muted small">Clip ${S.ai+1} of ${n}</span>
       <details class="small"><summary>Attribute guide</summary><div class="card">${defsTable()}</div></details></div>
     <div class="progress"><div style="width:${100*S.ai/n}%"></div></div>
     <div class="card"><h2>Listen to the clip</h2>
@@ -190,20 +207,53 @@ function aView(){
   au.addEventListener("ended", ()=>{ rec.heard = true; save(); });
   au.addEventListener("play", ()=>{ rec.plays = (rec.plays||0)+1; });
   v.querySelectorAll("input[type=radio]").forEach(r=> r.onchange = ()=>{ rec.attrs[r.name]=r.value; save(); });
+  const finish = ()=>{
+    rec.desc_id = desc.id; rec.ms = Date.now() - rec.t0; rec.done = true;
+    S.ai++; if (S.ai >= n){ S.stage = "done"; S.finished = new Date().toISOString(); }
+    save(); render(); window.scrollTo(0,0);
+  };
   const showStep2 = ()=>{
-    const s2 = $(`<div class="card"><h2>Step 2 · Does this description match the clip?</h2>
+    const locked = rec.step > 2;
+    const s2 = $(`<div class="card ${locked?"locked":""}"><h2>Step 2 · Does this description match the clip?</h2>
       <div class="desc">${esc(desc.text)}</div>
-      <div class="scale chips">${[1,2,3,4,5].map(k=>`<label><input type="radio" name="match" value="${k}" ${rec.match==k?"checked":""}><span>${k}</span></label>`).join("")}</div>
+      <div class="scale chips">${[1,2,3,4,5].map(k=>`<label><input type="radio" name="match" value="${k}" ${rec.match==k?"checked":""} ${locked?"disabled":""}><span>${k}</span></label>`).join("")}</div>
       <div class="scale-ends"><span>1 · does not match at all</span><span>5 · matches perfectly</span></div>
       <div class="hint" id="h2"></div>
-      <button class="primary" id="next2">${S.ai+1<n?"Next clip":"Finish Part 1"}</button></div>`);
+      ${locked ? '<div class="muted small">Answer locked.</div>' :
+        `<button class="primary" id="next2">${item.ret ? "Continue to step 3" : (S.ai+1<n ? "Next clip" : "Finish")}</button>`}</div>`);
     s2.querySelectorAll("input[name=match]").forEach(r=> r.onchange = ()=>{ rec.match = +r.value; save(); });
-    s2.querySelector("#next2").onclick = ()=>{
+    if (!locked) s2.querySelector("#next2").onclick = ()=>{
       if (!rec.match){ s2.querySelector("#h2").textContent = "Please choose a rating."; return; }
-      rec.desc_id = desc.id; rec.ms = Date.now() - rec.t0; rec.done = true;
-      S.ai++; if (S.ai >= n) S.stage = "Bintro"; save(); render(); window.scrollTo(0,0);
+      if (item.ret){ rec.step = 3; rec.ms_match = Date.now() - rec.t0; save(); render(); }
+      else finish();
     };
     v.querySelector("#step2").append(s2);
+    if (rec.step === 3) showStep3();
+  };
+  const showStep3 = ()=>{
+    const ret = item.ret, flip = S.rFlip[S.aOrder[S.ai]];
+    const clips = flip ? [ret.clips[1], ret.clips[0]] : [ret.clips[0], ret.clips[1]];
+    rec.rheard = rec.rheard || {}; rec.left = clips[0].id; rec.right = clips[1].id;
+    const s3 = $(`<div class="card"><h2>Step 3 · Which clip matches this description better?</h2>
+      <div class="desc">${esc(ret.desc.text)}</div>
+      <div class="pair">${clips.map((c,k)=>`<div class="clipbox ${rec.rchoice===c.id?"chosen":""}" data-k="${k}">
+        <b>Clip ${k===0?"A":"B"}</b><audio controls preload="auto" src="${c.audio}"></audio>
+        <button data-pick="${c.id}">Clip ${k===0?"A":"B"} matches better</button></div>`).join("")}</div>
+      <div class="muted small">Judge only how each line is spoken. If both match equally, pick the slightly better one.</div>
+      <div class="hint" id="h3"></div>
+      <button class="primary" id="next3">${S.ai+1<n?"Next clip":"Finish"}</button></div>`);
+    s3.querySelectorAll("audio").forEach((au,k)=> au.addEventListener("ended", ()=>{ rec.rheard[clips[k].id]=true; save(); }));
+    s3.querySelectorAll("button[data-pick]").forEach(b=> b.onclick = ()=>{
+      if (!rec.rheard[clips[0].id] || !rec.rheard[clips[1].id]){ s3.querySelector("#h3").textContent = "Please play both clips to the end first."; return; }
+      rec.rchoice = b.dataset.pick; save();
+      s3.querySelectorAll(".clipbox").forEach(bx=> bx.classList.toggle("chosen", clips[+bx.dataset.k].id === rec.rchoice));
+      s3.querySelector("#h3").textContent = "";
+    });
+    s3.querySelector("#next3").onclick = ()=>{
+      if (!rec.rchoice){ s3.querySelector("#h3").textContent = "Please choose a clip."; return; }
+      rec.rdesc_id = ret.desc.id; finish();
+    };
+    v.querySelector("#step2").append(s3);
   };
   if (rec.step === 1){
     v.querySelector("#next1").onclick = ()=>{
@@ -213,45 +263,6 @@ function aView(){
       rec.step = 2; rec.ms_attrs = Date.now() - rec.t0; save(); render();
     };
   } else showStep2();
-  return v;
-}
-
-function bIntroView(){
-  const v = $(`<div><h1>Part 2</h1><div class="card">
-    <p>Each page shows a description of a speaking style and two clips from the same speaker.
-    Listen to both clips to the end, then choose the one whose <b>delivery</b> matches the description better.
-    Ignore the words; judge only how the line is spoken. If both match equally, pick the slightly better one.</p>
-    <button class="primary" id="go">Start Part 2</button></div></div>`);
-  v.querySelector("#go").onclick = ()=>{ S.stage="B"; save(); render(); window.scrollTo(0,0); };
-  return v;
-}
-
-function bView(){
-  const n = S.bOrder.length, idx = S.bOrder[S.bi], item = DATA.B[idx];
-  const clips = S.bFlip[idx] ? [item.clips[1], item.clips[0]] : [item.clips[0], item.clips[1]];
-  const rec = S.B[item.id] || {heard:{}}; S.B[item.id] = rec; rec.t0 = rec.t0 || Date.now();
-  rec.left = clips[0].id; rec.right = clips[1].id;
-  const v = $(`<div>
-    <div class="muted small">Part 2 · pair ${S.bi+1} of ${n}</div>
-    <div class="progress"><div style="width:${100*S.bi/n}%"></div></div>
-    <div class="card"><h2>Target style</h2><div class="desc">${esc(item.desc.text)}</div>
-      <div class="pair">${clips.map((c,k)=>`<div class="clipbox ${rec.choice===c.id?"chosen":""}" data-k="${k}">
-        <b>Clip ${k===0?"A":"B"}</b><audio controls preload="auto" src="${c.audio}"></audio>
-        <button data-pick="${c.id}">Clip ${k===0?"A":"B"} matches better</button></div>`).join("")}</div>
-      <div class="hint" id="h"></div>
-      <button class="primary" id="next">${S.bi+1<n?"Next pair":"Finish"}</button></div></div>`);
-  v.querySelectorAll("audio").forEach((au,k)=> au.addEventListener("ended", ()=>{ rec.heard[clips[k].id]=true; save(); }));
-  v.querySelectorAll("button[data-pick]").forEach(b=> b.onclick = ()=>{
-    if (!rec.heard[clips[0].id] || !rec.heard[clips[1].id]){ v.querySelector("#h").textContent = "Please play both clips to the end first."; return; }
-    rec.choice = b.dataset.pick; save();
-    v.querySelectorAll(".clipbox").forEach(bx=> bx.classList.toggle("chosen", clips[+bx.dataset.k].id === rec.choice));
-    v.querySelector("#h").textContent = "";
-  });
-  v.querySelector("#next").onclick = ()=>{
-    if (!rec.choice){ v.querySelector("#h").textContent = "Please choose a clip."; return; }
-    rec.desc_id = item.desc.id; rec.ms = Date.now() - rec.t0;
-    S.bi++; if (S.bi >= n){ S.stage = "done"; S.finished = new Date().toISOString(); } save(); render(); window.scrollTo(0,0);
-  };
   return v;
 }
 
@@ -268,15 +279,12 @@ function sessionJSON(){
   for (const [cid, r] of Object.entries(S.A)){
     if (!r.done) continue;
     const resp = Object.keys(ATTR_LABEL).map(a=>({stimulus:a, score:DATA.vocab[a].indexOf(r.attrs[a]), time:r.ms_attrs||0, comment:r.attrs[a]}));
-    resp.push({stimulus:"desc_match", score:r.match, time:r.ms, comment:r.desc_id});
+    resp.push({stimulus:"desc_match", score:r.match, time:r.ms_match||r.ms, comment:r.desc_id});
+    if (r.rchoice) resp.push({stimulus:"ret_choice", score:num(r.rchoice), time:r.ms, comment:r.rdesc_id},
+                             {stimulus:"ret_left", score:num(r.left), time:0, comment:""},
+                             {stimulus:"ret_right", score:num(r.right), time:0, comment:""});
     resp.push({stimulus:"plays", score:r.plays||0, time:0, comment:""});
     trials.push({id:"A__"+cid, type:"mushra", responses:resp});
-  }
-  for (const [pid, r] of Object.entries(S.B)){
-    if (!r.choice) continue;
-    trials.push({id:"B__"+pid, type:"mushra", responses:[
-      {stimulus:"choice", score:num(r.choice), time:r.ms, comment:r.desc_id},
-      {stimulus:"left", score:num(r.left), time:0, comment:""}, {stimulus:"right", score:num(r.right), time:0, comment:""}]});
   }
   return {testId:TEST_ID, uuid:S.uuid, participant:{name:[], response:[]}, trials};
 }

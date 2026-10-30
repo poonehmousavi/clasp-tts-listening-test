@@ -53,7 +53,8 @@
      "id": "d002",
      "text": "Whispered and rushed, with a panicked, breathy tone and quick pacing."
     }
-   }
+   },
+   "ret": null
   },
   {
    "id": "c002",
@@ -68,7 +69,8 @@
      "id": "d003",
      "text": "A calm, appreciative tone shifts abruptly to a high-pitched scream; the vocal contrast emphasizes the emotional whiplash."
     }
-   }
+   },
+   "ret": null
   },
   {
    "id": "c003",
@@ -83,7 +85,8 @@
      "id": "d006",
      "text": "Soft, slow-paced, and gentle with a breathy quality and slight pauses, conveying sincerity."
     }
-   }
+   },
+   "ret": null
   },
   {
    "id": "c004",
@@ -98,7 +101,8 @@
      "id": "d007",
      "text": "Whispered, urgent, with a slight tremor; the pitch rises slightly, indicating growing fear."
     }
-   }
+   },
+   "ret": null
   },
   {
    "id": "c005",
@@ -113,7 +117,8 @@
      "id": "d010",
      "text": "Slow, deliberate, and theatrical with a flat, deadpan tone and a slight downward inflection at the end."
     }
-   }
+   },
+   "ret": null
   },
   {
    "id": "c006",
@@ -128,7 +133,8 @@
      "id": "d011",
      "text": "Fast-paced, breathy, and slightly high-pitched with a rising intonation at the end, conveying surprise and exasperation."
     }
-   }
+   },
+   "ret": null
   },
   {
    "id": "c007",
@@ -143,7 +149,8 @@
      "id": "d014",
      "text": "Lively and conspiratorial, with a sudden, exaggerated gasp at the end."
     }
-   }
+   },
+   "ret": null
   },
   {
    "id": "c008",
@@ -158,7 +165,8 @@
      "id": "d015",
      "text": "Fast-paced, slightly conspiratorial tone with a breathy delivery and a hint of a smirk."
     }
-   }
+   },
+   "ret": null
   },
   {
    "id": "c009",
@@ -173,7 +181,8 @@
      "id": "d018",
      "text": "Whispered, measured pace, hushed tone with a slight tremor indicating nervousness."
     }
-   }
+   },
+   "ret": null
   },
   {
    "id": "c010",
@@ -188,7 +197,8 @@
      "id": "d019",
      "text": "High-pitched, rapid, forceful delivery with an edge of alarm and slight mockery in the tone"
     }
-   }
+   },
+   "ret": null
   },
   {
    "id": "c011",
@@ -203,7 +213,8 @@
      "id": "d022",
      "text": "High-pitched, forceful, and fast-paced, delivered with a strained, commanding tone."
     }
-   }
+   },
+   "ret": null
   },
   {
    "id": "c012",
@@ -218,7 +229,8 @@
      "id": "d023",
      "text": "High-pitched, fast-paced, with a breathy, slightly panicked tone and a trailing inflection indicating emotional processing."
     }
-   }
+   },
+   "ret": null
   },
   {
    "id": "c013",
@@ -233,7 +245,8 @@
      "id": "d026",
      "text": "Soft, slow-paced, and soothing with a slightly breathy, intimate tone."
     }
-   }
+   },
+   "ret": null
   },
   {
    "id": "c014",
@@ -248,7 +261,8 @@
      "id": "d027",
      "text": "Bright, exaggerated, and delivered with a quick, rhythmic cadence; includes a light giggle."
     }
-   }
+   },
+   "ret": null
   },
   {
    "id": "c015",
@@ -263,7 +277,8 @@
      "id": "d030",
      "text": "High-pitched, fast-paced, with a tone of disbelief; includes a brief, sharp intake of breath before speaking."
     }
-   }
+   },
+   "ret": null
   },
   {
    "id": "c016",
@@ -278,7 +293,8 @@
      "id": "d031",
      "text": "High-pitched, rapid, and breathy with a shaky, emotional tone; includes gasps and a rising inflection conveying disbelief turning into joy."
     }
-   }
+   },
+   "ret": null
   },
   {
    "id": "c017",
@@ -287,102 +303,90 @@
    "desc": {
     "L0": {
      "id": "d033",
-     "text": "The tone is pleading yet edged with annoyance. The pacing is moderately fast with a rising inflection, conveying urgency."
+     "text": "Urgent and trembling, with a breathy, pleading tone and slight vocal cracks."
     },
     "L1": {
      "id": "d034",
-     "text": "The voice is shaky and breathy, with a slow, pleading pace and audible sobbing at the start."
+     "text": "Soft, slow, and gentle tone with a sense of quiet gratitude"
     }
-   }
-  },
-  {
-   "id": "c018",
-   "audio": "audio/c018.mp3",
-   "block": 0,
-   "desc": {
-    "L0": {
-     "id": "d036",
-     "text": "Fast-paced, slightly high-pitched with rising intonation, conveying agitation. Frequent pauses and filler words show emotional strain."
-    },
-    "L1": {
+   },
+   "ret": {
+    "desc": {
      "id": "d035",
-     "text": "The line is delivered slowly, in a soft, breathy tone, with a slight upward inflection at the end, suggesting vulnerability. There is a brief pause before speaking, and the voice carries a fragile, almost whispered quality."
-    }
+     "text": "Urgent and trembling, with a breathy, pleading tone and slight vocal cracks."
+    },
+    "clips": [
+     {
+      "id": "c017",
+      "audio": "audio/c017.mp3"
+     },
+     {
+      "id": "c018",
+      "audio": "audio/c018.mp3"
+     }
+    ]
    }
   },
   {
    "id": "c019",
    "audio": "audio/c019.mp3",
-   "block": 1,
-   "desc": {
-    "L0": {
-     "id": "d037",
-     "text": "Soft, slow-paced, with a hesitant and reflective tone. A subtle intake of breath suggests vulnerability."
-    },
-    "L1": {
-     "id": "d038",
-     "text": "Slow, deliberate, and low-pitched with a questioning tone and a subtle hint of accusation."
-    }
-   }
-  },
-  {
-   "id": "c020",
-   "audio": "audio/c020.mp3",
-   "block": 1,
-   "desc": {
-    "L0": {
-     "id": "d040",
-     "text": "Soft, hesitant, and slightly melancholic; slow pace with a gentle, descending inflection."
-    },
-    "L1": {
-     "id": "d039",
-     "text": "The tone is bright and high-pitched with a quick, energetic pace. There's a genuine sense of wonder in the voice, emphasized by a slight upward inflection at the end."
-    }
-   }
-  },
-  {
-   "id": "c021",
-   "audio": "audio/c021.mp3",
    "block": 0,
    "desc": {
     "L0": {
-     "id": "d041",
-     "text": "Forceful, assertive, with a fast pace and sharp tone; emphasizes the words 'the end' with a descending, final inflection."
+     "id": "d037",
+     "text": "Soft, gentle tone with a slow, calm pace; slight upward inflection at the end suggests sincerity."
     },
     "L1": {
-     "id": "d042",
-     "text": "Slow, deliberate, and low-pitched with significant pauses; the tone is quiet and carries emotional weight."
+     "id": "d036",
+     "text": "The speech is fast-paced and emotionally charged, with a rising pitch and slight tremor indicating desperation and fatigue."
     }
+   },
+   "ret": {
+    "desc": {
+     "id": "d038",
+     "text": "The speech is fast-paced and emotionally charged, with a rising pitch and slight tremor indicating desperation and fatigue."
+    },
+    "clips": [
+     {
+      "id": "c020",
+      "audio": "audio/c020.mp3"
+     },
+     {
+      "id": "c021",
+      "audio": "audio/c021.mp3"
+     }
+    ]
    }
   },
   {
    "id": "c022",
    "audio": "audio/c022.mp3",
-   "block": 0,
-   "desc": {
-    "L0": {
-     "id": "d044",
-     "text": "Light, breathy, and slightly rushed; includes a giggle, conveying genuine enthusiasm."
-    },
-    "L1": {
-     "id": "d043",
-     "text": "Soft, low-pitched, and slow-paced, delivered in a breathy whisper with a questioning intonation."
-    }
-   }
-  },
-  {
-   "id": "c023",
-   "audio": "audio/c023.mp3",
    "block": 1,
    "desc": {
     "L0": {
-     "id": "d045",
+     "id": "d039",
      "text": "The tone is light and conversational with a hint of playful sarcasm. The pace is relaxed, and there's a subtle chuckle at the end."
     },
     "L1": {
-     "id": "d046",
-     "text": "Soft, hesitant, and slow-paced with a gentle, slightly upward inflection at the end, indicating uncertainty and emotional vulnerability."
+     "id": "d040",
+     "text": "Rapid, firm tone with a rising inflection; punctuated by a sharp, affirmative response."
     }
+   },
+   "ret": {
+    "desc": {
+     "id": "d041",
+     "text": "The tone is light and conversational with a hint of playful sarcasm. The pace is relaxed, and there's a subtle chuckle at the end."
+    },
+    "clips": [
+     {
+      "id": "c022",
+      "audio": "audio/c022.mp3"
+     },
+     {
+      "id": "c023",
+      "audio": "audio/c023.mp3"
+     }
+    ]
    }
   },
   {
@@ -391,88 +395,60 @@
    "block": 1,
    "desc": {
     "L0": {
-     "id": "d048",
-     "text": "Soft, slow, and low-pitched with a questioning intonation. The delivery is hushed and breathy, conveying genuine confusion and mild worry."
+     "id": "d043",
+     "text": "Fast-paced, firm tone with a rising inflection; conveys impatience."
     },
     "L1": {
-     "id": "d047",
-     "text": "Soft, slow, and measured with a breathy, slightly melancholic tone; pauses emphasize emotional weight."
+     "id": "d042",
+     "text": "The character speaks slowly and with a trembling, wavering voice, interspersed with sobs and breaths that suggest she is actively crying."
     }
-   }
-  },
-  {
-   "id": "c025",
-   "audio": "audio/c025.mp3",
-   "block": 0,
-   "desc": {
-    "L0": {
-     "id": "d049",
-     "text": "Exclamatory and abrupt, with a strained, almost groaning quality; the line is delivered in a rush, conveying shock and disbelief."
+   },
+   "ret": {
+    "desc": {
+     "id": "d044",
+     "text": "The character speaks slowly and with a trembling, wavering voice, interspersed with sobs and breaths that suggest she is actively crying."
     },
-    "L1": {
-     "id": "d050",
-     "text": "Slow, hesitant, and weary. The tone is breathy and introspective, with a slight upward inflection that suggests uncertainty."
-    }
-   }
-  },
-  {
-   "id": "c026",
-   "audio": "audio/c026.mp3",
-   "block": 0,
-   "desc": {
-    "L0": {
-     "id": "d052",
-     "text": "Low-energy, slow-paced, with a sighing tone and subtle vocal fatigue."
-    },
-    "L1": {
-     "id": "d051",
-     "text": "Calm, gentle, and deliberate with a slow, steady pace and a soft, intimate volume, creating a sense of intimacy and reassurance."
-    }
+    "clips": [
+     {
+      "id": "c025",
+      "audio": "audio/c025.mp3"
+     },
+     {
+      "id": "c026",
+      "audio": "audio/c026.mp3"
+     }
+    ]
    }
   },
   {
    "id": "c027",
    "audio": "audio/c027.mp3",
-   "block": 1,
-   "desc": {
-    "L0": {
-     "id": "d053",
-     "text": "The character speaks in a rhythmic, rising cadence with a performative tone, emphasizing each age with playful inflection and a slightly teasing, mock-serious delivery."
-    },
-    "L1": {
-     "id": "d054",
-     "text": "A quick, slightly frustrated tone with a trailing, almost sighing delivery."
-    }
-   }
-  },
-  {
-   "id": "c028",
-   "audio": "audio/c028.mp3",
-   "block": 1,
-   "desc": {
-    "L0": {
-     "id": "d056",
-     "text": "Low-pitched, slow, and weary; the tone is resigned with a hint of frustration."
-    },
-    "L1": {
-     "id": "d055",
-     "text": "Fast-paced, urgent, with a rising pitch and slight breathlessness; conveys a sense of panic."
-    }
-   }
-  },
-  {
-   "id": "c029",
-   "audio": "audio/c029.mp3",
    "block": 0,
    "desc": {
     "L0": {
-     "id": "d057",
-     "text": "Slow, low-pitched, and subdued with a hint of bitterness; pauses are used for emphasis, and the tone is somber and reflective."
+     "id": "d045",
+     "text": "Soft, low-pitched, and slow-paced, delivered in a breathy whisper with a questioning intonation."
     },
     "L1": {
-     "id": "d058",
-     "text": "Fast-paced, questioning tone with rising inflection, conveying incredulity. Clear and articulate, with natural pauses that emphasize disbelief."
+     "id": "d046",
+     "text": "The voice is sharp and fast-paced, with a rising inflection that conveys surprise and a touch of indignation. A short, breathy intake precedes the word."
     }
+   },
+   "ret": {
+    "desc": {
+     "id": "d047",
+     "text": "Soft, low-pitched, and slow-paced, delivered in a breathy whisper with a questioning intonation."
+    },
+    "clips": [
+     {
+      "id": "c028",
+      "audio": "audio/c028.mp3"
+     },
+     {
+      "id": "c029",
+      "audio": "audio/c029.mp3"
+     }
+    ]
    }
   },
   {
@@ -481,478 +457,588 @@
    "block": 0,
    "desc": {
     "L0": {
-     "id": "d060",
-     "text": "Fast-paced, breathless, and strained with a rising pitch. Includes audible gasps and a sense of urgency."
+     "id": "d049",
+     "text": "Calm, slow-paced, and low-pitched with a sighing quality, conveying quiet acceptance."
     },
     "L1": {
-     "id": "d059",
-     "text": "The speech is hesitant and delivered with a rising, questioning intonation. The pace is slow and punctuated by a brief pause, conveying uncertainty."
+     "id": "d048",
+     "text": "The tone is bright and high-pitched with a quick, energetic pace. There's a genuine sense of wonder in the voice, emphasized by a slight upward inflection at the end."
     }
+   },
+   "ret": {
+    "desc": {
+     "id": "d050",
+     "text": "The tone is bright and high-pitched with a quick, energetic pace. There's a genuine sense of wonder in the voice, emphasized by a slight upward inflection at the end."
+    },
+    "clips": [
+     {
+      "id": "c031",
+      "audio": "audio/c031.mp3"
+     },
+     {
+      "id": "c032",
+      "audio": "audio/c032.mp3"
+     }
+    ]
    }
   },
   {
-   "id": "c031",
-   "audio": "audio/c031.mp3",
+   "id": "c033",
+   "audio": "audio/c033.mp3",
    "block": 1,
+   "desc": {
+    "L0": {
+     "id": "d051",
+     "text": "Sharp, high-pitched, and dismissive. The tone is sarcastic and fast-paced with a slight scoff at the end."
+    },
+    "L1": {
+     "id": "d052",
+     "text": "Soft and hesitant, with a slow pace and rising intonation at the end, suggesting a lack of confidence."
+    }
+   },
+   "ret": {
+    "desc": {
+     "id": "d053",
+     "text": "Sharp, high-pitched, and dismissive. The tone is sarcastic and fast-paced with a slight scoff at the end."
+    },
+    "clips": [
+     {
+      "id": "c034",
+      "audio": "audio/c034.mp3"
+     },
+     {
+      "id": "c035",
+      "audio": "audio/c035.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c036",
+   "audio": "audio/c036.mp3",
+   "block": 1,
+   "desc": {
+    "L0": {
+     "id": "d055",
+     "text": "Soft, low-pitched, and slow-paced, with a breathy and slightly hesitant quality."
+    },
+    "L1": {
+     "id": "d054",
+     "text": "Forceful, assertive, with a fast pace and sharp tone; emphasizes the words 'the end' with a descending, final inflection."
+    }
+   },
+   "ret": {
+    "desc": {
+     "id": "d056",
+     "text": "Forceful, assertive, with a fast pace and sharp tone; emphasizes the words 'the end' with a descending, final inflection."
+    },
+    "clips": [
+     {
+      "id": "c037",
+      "audio": "audio/c037.mp3"
+     },
+     {
+      "id": "c038",
+      "audio": "audio/c038.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c039",
+   "audio": "audio/c039.mp3",
+   "block": 0,
+   "desc": {
+    "L0": {
+     "id": "d057",
+     "text": "The tone is calm and slightly patronizing, delivered at a slow, deliberate pace with a gentle, almost singsong rhythm."
+    },
+    "L1": {
+     "id": "d058",
+     "text": "The delivery is urgent and pleading, with a moderate pace and a rising inflection at the end. The tone is insistent and slightly exasperated, conveying sincerity and a need to be taken seriously."
+    }
+   },
+   "ret": {
+    "desc": {
+     "id": "d059",
+     "text": "The tone is calm and slightly patronizing, delivered at a slow, deliberate pace with a gentle, almost singsong rhythm."
+    },
+    "clips": [
+     {
+      "id": "c040",
+      "audio": "audio/c040.mp3"
+     },
+     {
+      "id": "c041",
+      "audio": "audio/c041.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c042",
+   "audio": "audio/c042.mp3",
+   "block": 0,
    "desc": {
     "L0": {
      "id": "d061",
-     "text": "Slow, deliberate, and heartfelt. The tone is sincere and warm, with a noticeable pause and breath before the final words."
+     "text": "Slow, deliberate pacing with emphatic stress on key words; tone is earnest and impassioned."
     },
     "L1": {
-     "id": "d062",
-     "text": "The speaker's tone is subdued and reflective, with a slow, hesitant pace and a slightly weary quality. There are subtle breaths and pauses that emphasize his inner conflict."
+     "id": "d060",
+     "text": "Soft, slow, and intimate with a gentle, downward inflection. The tone is tender and reflective, almost like a whispered realization."
     }
+   },
+   "ret": {
+    "desc": {
+     "id": "d062",
+     "text": "Soft, slow, and intimate with a gentle, downward inflection. The tone is tender and reflective, almost like a whispered realization."
+    },
+    "clips": [
+     {
+      "id": "c043",
+      "audio": "audio/c043.mp3"
+     },
+     {
+      "id": "c044",
+      "audio": "audio/c044.mp3"
+     }
+    ]
    }
   },
   {
-   "id": "c032",
-   "audio": "audio/c032.mp3",
+   "id": "c045",
+   "audio": "audio/c045.mp3",
    "block": 1,
    "desc": {
     "L0": {
-     "id": "d064",
-     "text": "Slow, low-pitched, and contemplative, with a slight pause before the final phrase."
+     "id": "d063",
+     "text": "Bright, fast-paced, with a cheerful tone and a brief giggle"
     },
     "L1": {
-     "id": "d063",
-     "text": "Fast-paced, with a strained, almost pleading tone. The voice rises in pitch and volume, suggesting agitation and emotional intensity."
+     "id": "d064",
+     "text": "Soft, slow-paced, with a questioning intonation and slight pauses, indicating thoughtfulness and vulnerability."
     }
+   },
+   "ret": {
+    "desc": {
+     "id": "d065",
+     "text": "Bright, fast-paced, with a cheerful tone and a brief giggle"
+    },
+    "clips": [
+     {
+      "id": "c046",
+      "audio": "audio/c046.mp3"
+     },
+     {
+      "id": "c047",
+      "audio": "audio/c047.mp3"
+     }
+    ]
    }
-  }
- ],
- "B": [
-  {
-   "id": "p001",
-   "block": 0,
-   "desc": {
-    "id": "d065",
-    "text": "High-pitched, forceful, and urgent with a strained, emotional tone. The delivery is fast and punctuated, with a slight cry-like quality."
-   },
-   "clips": [
-    {
-     "id": "c033",
-     "audio": "audio/c033.mp3"
-    },
-    {
-     "id": "c034",
-     "audio": "audio/c034.mp3"
-    }
-   ]
   },
   {
-   "id": "p002",
+   "id": "c048",
+   "audio": "audio/c048.mp3",
    "block": 1,
    "desc": {
-    "id": "d066",
-    "text": "Clear and direct, with a rising inflection at the end. The pacing is moderate, and the tone carries a hint of exasperation."
-   },
-   "clips": [
-    {
-     "id": "c035",
-     "audio": "audio/c035.mp3"
+    "L0": {
+     "id": "d067",
+     "text": "The voice is low-pitched, slow, and deliberate, with a dry, almost monotonous tone and minimal inflection, conveying a sense of boredom and fatigue."
     },
-    {
-     "id": "c036",
-     "audio": "audio/c036.mp3"
+    "L1": {
+     "id": "d066",
+     "text": "Soft, slow-paced, with a hesitant and reflective tone. A subtle intake of breath suggests vulnerability."
     }
-   ]
+   },
+   "ret": {
+    "desc": {
+     "id": "d068",
+     "text": "Soft, slow-paced, with a hesitant and reflective tone. A subtle intake of breath suggests vulnerability."
+    },
+    "clips": [
+     {
+      "id": "c049",
+      "audio": "audio/c049.mp3"
+     },
+     {
+      "id": "c050",
+      "audio": "audio/c050.mp3"
+     }
+    ]
+   }
   },
   {
-   "id": "p003",
+   "id": "c051",
+   "audio": "audio/c051.mp3",
    "block": 0,
    "desc": {
-    "id": "d067",
-    "text": "Soft, breathy, and slow-paced, as if hesitating before asking a difficult question."
-   },
-   "clips": [
-    {
-     "id": "c037",
-     "audio": "audio/c037.mp3"
+    "L0": {
+     "id": "d069",
+     "text": "Smooth, deliberate pacing with a dry, low-pitched tone and a hint of mockery; the line ends with a subtle, almost imperceptible chuckle."
     },
-    {
-     "id": "c038",
-     "audio": "audio/c038.mp3"
+    "L1": {
+     "id": "d070",
+     "text": "Shouted, fast-paced, and aggressive with a harsh, scornful tone and sharp enunciation"
     }
-   ]
+   },
+   "ret": {
+    "desc": {
+     "id": "d071",
+     "text": "Smooth, deliberate pacing with a dry, low-pitched tone and a hint of mockery; the line ends with a subtle, almost imperceptible chuckle."
+    },
+    "clips": [
+     {
+      "id": "c051",
+      "audio": "audio/c051.mp3"
+     },
+     {
+      "id": "c052",
+      "audio": "audio/c052.mp3"
+     }
+    ]
+   }
   },
   {
-   "id": "p004",
-   "block": 1,
-   "desc": {
-    "id": "d068",
-    "text": "Light, breathy, and slightly rushed; includes a giggle, conveying genuine enthusiasm."
-   },
-   "clips": [
-    {
-     "id": "c039",
-     "audio": "audio/c039.mp3"
-    },
-    {
-     "id": "c040",
-     "audio": "audio/c040.mp3"
-    }
-   ]
-  },
-  {
-   "id": "p005",
+   "id": "c053",
+   "audio": "audio/c053.mp3",
    "block": 0,
    "desc": {
-    "id": "d069",
-    "text": "The voice is soft, with a slow pace and a hesitant tone. There's a subtle breathiness and a questioning inflection, especially at the end."
-   },
-   "clips": [
-    {
-     "id": "c041",
-     "audio": "audio/c041.mp3"
+    "L0": {
+     "id": "d073",
+     "text": "The line is delivered with a breathy, expressive tone, starting with a sigh of relief. The pacing is moderate and sincere, conveying strong positive emotion."
     },
-    {
-     "id": "c042",
-     "audio": "audio/c042.mp3"
+    "L1": {
+     "id": "d072",
+     "text": "Soft, slow, and breathy with a slight tremor; the tone is intimate and pleading, conveying vulnerability."
     }
-   ]
+   },
+   "ret": {
+    "desc": {
+     "id": "d074",
+     "text": "Soft, slow, and breathy with a slight tremor; the tone is intimate and pleading, conveying vulnerability."
+    },
+    "clips": [
+     {
+      "id": "c054",
+      "audio": "audio/c054.mp3"
+     },
+     {
+      "id": "c055",
+      "audio": "audio/c055.mp3"
+     }
+    ]
+   }
   },
   {
-   "id": "p006",
+   "id": "c056",
+   "audio": "audio/c056.mp3",
    "block": 1,
    "desc": {
-    "id": "d070",
-    "text": "The tone is soft and inviting, with a slow, gentle pace. A light, almost breathy quality and a subtle upward inflection at the end convey sincerity and openness."
-   },
-   "clips": [
-    {
-     "id": "c043",
-     "audio": "audio/c043.mp3"
+    "L0": {
+     "id": "d075",
+     "text": "Slow, hesitant, and low-pitched, with a breathy quality and an underlying tone of fear."
     },
-    {
-     "id": "c044",
-     "audio": "audio/c044.mp3"
+    "L1": {
+     "id": "d076",
+     "text": "Slow, low-pitched, and subdued with a sigh-like quality at the end."
     }
-   ]
+   },
+   "ret": {
+    "desc": {
+     "id": "d077",
+     "text": "Slow, hesitant, and low-pitched, with a breathy quality and an underlying tone of fear."
+    },
+    "clips": [
+     {
+      "id": "c056",
+      "audio": "audio/c056.mp3"
+     },
+     {
+      "id": "c057",
+      "audio": "audio/c057.mp3"
+     }
+    ]
+   }
   },
   {
-   "id": "p007",
+   "id": "c058",
+   "audio": "audio/c058.mp3",
+   "block": 1,
+   "desc": {
+    "L0": {
+     "id": "d079",
+     "text": "Slow, low-pitched, and somber with a quiet, almost defeated tone and minimal inflection."
+    },
+    "L1": {
+     "id": "d078",
+     "text": "Low-pitched, deliberate pacing with a scoff at the start, conveying skepticism and challenge."
+    }
+   },
+   "ret": {
+    "desc": {
+     "id": "d080",
+     "text": "Low-pitched, deliberate pacing with a scoff at the start, conveying skepticism and challenge."
+    },
+    "clips": [
+     {
+      "id": "c059",
+      "audio": "audio/c059.mp3"
+     },
+     {
+      "id": "c060",
+      "audio": "audio/c060.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c061",
+   "audio": "audio/c061.mp3",
    "block": 0,
    "desc": {
-    "id": "d071",
-    "text": "Soft and gentle tone, slow pace, clear articulation, no notable non-verbal sounds."
-   },
-   "clips": [
-    {
-     "id": "c045",
-     "audio": "audio/c045.mp3"
+    "L0": {
+     "id": "d081",
+     "text": "Rapid, high-pitched, and forceful. The tone is confrontational with a rising inflection, indicating agitation and disbelief."
     },
-    {
-     "id": "c046",
-     "audio": "audio/c046.mp3"
+    "L1": {
+     "id": "d082",
+     "text": "The tone is low and contemplative, delivered at a slow, deliberate pace. There is a breathy quality and slight hesitation in the delivery."
     }
-   ]
+   },
+   "ret": {
+    "desc": {
+     "id": "d083",
+     "text": "Rapid, high-pitched, and forceful. The tone is confrontational with a rising inflection, indicating agitation and disbelief."
+    },
+    "clips": [
+     {
+      "id": "c062",
+      "audio": "audio/c062.mp3"
+     },
+     {
+      "id": "c063",
+      "audio": "audio/c063.mp3"
+     }
+    ]
+   }
   },
   {
-   "id": "p008",
-   "block": 1,
-   "desc": {
-    "id": "d072",
-    "text": "High-pitched and urgent, delivered in a rapid, emotionally charged tone."
-   },
-   "clips": [
-    {
-     "id": "c047",
-     "audio": "audio/c047.mp3"
-    },
-    {
-     "id": "c048",
-     "audio": "audio/c048.mp3"
-    }
-   ]
-  },
-  {
-   "id": "p009",
+   "id": "c064",
+   "audio": "audio/c064.mp3",
    "block": 0,
    "desc": {
-    "id": "d073",
-    "text": "Fast-paced and agitated, with a rough, informal tone and a clipped delivery. There's a sharp rise in pitch at the beginning, and the sentence trails off abruptly."
-   },
-   "clips": [
-    {
-     "id": "c049",
-     "audio": "audio/c049.mp3"
+    "L0": {
+     "id": "d085",
+     "text": "Soft, slow, and breathy with a gentle, intimate tone; includes a slight pause and a soft chuckle, conveying quiet sincerity."
     },
-    {
-     "id": "c050",
-     "audio": "audio/c050.mp3"
+    "L1": {
+     "id": "d084",
+     "text": "Calm and conversational, with a warm tone and a gentle, reassuring pace. Includes a soft chuckle at the end."
     }
-   ]
+   },
+   "ret": {
+    "desc": {
+     "id": "d086",
+     "text": "Calm and conversational, with a warm tone and a gentle, reassuring pace. Includes a soft chuckle at the end."
+    },
+    "clips": [
+     {
+      "id": "c065",
+      "audio": "audio/c065.mp3"
+     },
+     {
+      "id": "c066",
+      "audio": "audio/c066.mp3"
+     }
+    ]
+   }
   },
   {
-   "id": "p010",
+   "id": "c067",
+   "audio": "audio/c067.mp3",
    "block": 1,
    "desc": {
-    "id": "d074",
-    "text": "Gentle and hesitant, with a rising inflection suggesting a question. The pace is moderate, with slight pauses indicating thoughtfulness."
-   },
-   "clips": [
-    {
-     "id": "c051",
-     "audio": "audio/c051.mp3"
+    "L0": {
+     "id": "d087",
+     "text": "The line is delivered with a breathy, expressive tone, starting with a sigh of relief. The pacing is moderate and sincere, conveying strong positive emotion."
     },
-    {
-     "id": "c052",
-     "audio": "audio/c052.mp3"
+    "L1": {
+     "id": "d088",
+     "text": "The voice is low, breathy, and intimate, delivered at a slow, deliberate pace with a subtle tremor that conveys emotional exposure."
     }
-   ]
+   },
+   "ret": {
+    "desc": {
+     "id": "d089",
+     "text": "The line is delivered with a breathy, expressive tone, starting with a sigh of relief. The pacing is moderate and sincere, conveying strong positive emotion."
+    },
+    "clips": [
+     {
+      "id": "c068",
+      "audio": "audio/c068.mp3"
+     },
+     {
+      "id": "c069",
+      "audio": "audio/c069.mp3"
+     }
+    ]
+   }
   },
   {
-   "id": "p011",
-   "block": -1,
+   "id": "c070",
+   "audio": "audio/c070.mp3",
+   "block": 1,
    "desc": {
-    "id": "d075",
-    "text": "Conversational and soothing, with a moderate pace and a slight rise in pitch at the end, indicating encouragement."
-   },
-   "clips": [
-    {
-     "id": "c053",
-     "audio": "audio/c053.mp3"
+    "L0": {
+     "id": "d091",
+     "text": "Drawn-out, melodic tone with a breathy, almost sing-song delivery and a clear, upbeat inflection."
     },
-    {
-     "id": "c054",
-     "audio": "audio/c054.mp3"
+    "L1": {
+     "id": "d090",
+     "text": "Calm, low-pitched, and measured, with a touch of dryness and a hint of sarcasm. The delivery is slow and deliberate, emphasizing the lack of seriousness."
     }
-   ]
+   },
+   "ret": {
+    "desc": {
+     "id": "d092",
+     "text": "Calm, low-pitched, and measured, with a touch of dryness and a hint of sarcasm. The delivery is slow and deliberate, emphasizing the lack of seriousness."
+    },
+    "clips": [
+     {
+      "id": "c071",
+      "audio": "audio/c071.mp3"
+     },
+     {
+      "id": "c072",
+      "audio": "audio/c072.mp3"
+     }
+    ]
+   }
   },
   {
-   "id": "p012",
-   "block": -1,
-   "desc": {
-    "id": "d076",
-    "text": "Fast-paced and high-pitched, with overlapping dialogue and a sense of urgency."
-   },
-   "clips": [
-    {
-     "id": "c055",
-     "audio": "audio/c055.mp3"
-    },
-    {
-     "id": "c056",
-     "audio": "audio/c056.mp3"
-    }
-   ]
-  },
-  {
-   "id": "p013",
+   "id": "c073",
+   "audio": "audio/c073.mp3",
    "block": 0,
    "desc": {
-    "id": "d077",
-    "text": "The tone is theatrical and sarcastic, with a measured, deliberate pace and a subtle chuckle at the end."
-   },
-   "clips": [
-    {
-     "id": "c057",
-     "audio": "audio/c057.mp3"
+    "L0": {
+     "id": "d093",
+     "text": "The speaker uses a slightly sarcastic and dismissive tone with a fast-paced delivery and a rising inflection on 'all right'. The repetition of the phrase adds to the annoyed and incredulous mood."
     },
-    {
-     "id": "c058",
-     "audio": "audio/c058.mp3"
+    "L1": {
+     "id": "d094",
+     "text": "Fast-paced, with a slightly whiny tone and a breathy, self-conscious quality. The delivery is abrupt and cut-off, suggesting nervousness or impatience."
     }
-   ]
+   },
+   "ret": {
+    "desc": {
+     "id": "d095",
+     "text": "The speaker uses a slightly sarcastic and dismissive tone with a fast-paced delivery and a rising inflection on 'all right'. The repetition of the phrase adds to the annoyed and incredulous mood."
+    },
+    "clips": [
+     {
+      "id": "c074",
+      "audio": "audio/c074.mp3"
+     },
+     {
+      "id": "c075",
+      "audio": "audio/c075.mp3"
+     }
+    ]
+   }
   },
   {
-   "id": "p014",
-   "block": 1,
-   "desc": {
-    "id": "d078",
-    "text": "Fast-paced, with a slightly whiny tone and a breathy, self-conscious quality. The delivery is abrupt and cut-off, suggesting nervousness or impatience."
-   },
-   "clips": [
-    {
-     "id": "c059",
-     "audio": "audio/c059.mp3"
-    },
-    {
-     "id": "c060",
-     "audio": "audio/c060.mp3"
-    }
-   ]
-  },
-  {
-   "id": "p015",
+   "id": "c076",
+   "audio": "audio/c076.mp3",
    "block": 0,
    "desc": {
-    "id": "d079",
-    "text": "Fast-paced and insistent, with a tone that emphasizes immediacy and mild frustration."
-   },
-   "clips": [
-    {
-     "id": "c061",
-     "audio": "audio/c061.mp3"
+    "L0": {
+     "id": "d097",
+     "text": "The tone is subdued and slow-paced, with a weary quality and slight hesitation, suggesting reluctance and emotional weight."
     },
-    {
-     "id": "c062",
-     "audio": "audio/c062.mp3"
+    "L1": {
+     "id": "d096",
+     "text": "Exasperated tone, mid-range pitch, slightly rushed pace with a sigh-like intake of breath at the start."
     }
-   ]
+   },
+   "ret": {
+    "desc": {
+     "id": "d098",
+     "text": "Exasperated tone, mid-range pitch, slightly rushed pace with a sigh-like intake of breath at the start."
+    },
+    "clips": [
+     {
+      "id": "c077",
+      "audio": "audio/c077.mp3"
+     },
+     {
+      "id": "c078",
+      "audio": "audio/c078.mp3"
+     }
+    ]
+   }
   },
   {
-   "id": "p016",
+   "id": "c079",
+   "audio": "audio/c079.mp3",
    "block": 1,
    "desc": {
-    "id": "d080",
-    "text": "Slow, low-pitched, and breathy with a trailing intonation, suggesting hesitation."
-   },
-   "clips": [
-    {
-     "id": "c063",
-     "audio": "audio/c063.mp3"
+    "L0": {
+     "id": "d099",
+     "text": "Soft, hesitant delivery with a slow, reflective pace and a low, slightly breathy tone."
     },
-    {
-     "id": "c064",
-     "audio": "audio/c064.mp3"
+    "L1": {
+     "id": "d100",
+     "text": "A short, sharp question delivered with a rising, challenging tone. The pacing is quick and clipped, with a strong emphasis on 'not' to convey disbelief."
     }
-   ]
+   },
+   "ret": {
+    "desc": {
+     "id": "d101",
+     "text": "Soft, hesitant delivery with a slow, reflective pace and a low, slightly breathy tone."
+    },
+    "clips": [
+     {
+      "id": "c080",
+      "audio": "audio/c080.mp3"
+     },
+     {
+      "id": "c081",
+      "audio": "audio/c081.mp3"
+     }
+    ]
+   }
   },
   {
-   "id": "p017",
-   "block": 0,
-   "desc": {
-    "id": "d081",
-    "text": "Warm and gentle tone with a slow, reassuring pace. A soft chuckle is audible at the start, indicating approachability."
-   },
-   "clips": [
-    {
-     "id": "c065",
-     "audio": "audio/c065.mp3"
-    },
-    {
-     "id": "c066",
-     "audio": "audio/c066.mp3"
-    }
-   ]
-  },
-  {
-   "id": "p018",
+   "id": "c082",
+   "audio": "audio/c082.mp3",
    "block": 1,
    "desc": {
-    "id": "d082",
-    "text": "Low-pitched, slow-paced, and subdued with a sighing quality, conveying a lack of energy."
-   },
-   "clips": [
-    {
-     "id": "c067",
-     "audio": "audio/c067.mp3"
+    "L0": {
+     "id": "d103",
+     "text": "Slow, interrupted, with pauses and a slightly wavering tone that suggests inner conflict."
     },
-    {
-     "id": "c068",
-     "audio": "audio/c068.mp3"
+    "L1": {
+     "id": "d102",
+     "text": "Whispered and urgent, with a strained, pleading tone and a slight tremor in the voice"
     }
-   ]
-  },
-  {
-   "id": "p019",
-   "block": 0,
-   "desc": {
-    "id": "d083",
-    "text": "The tone is casual and conversational, with a rising intonation at the end, indicating a question. The pace is relaxed and natural."
    },
-   "clips": [
-    {
-     "id": "c069",
-     "audio": "audio/c069.mp3"
+   "ret": {
+    "desc": {
+     "id": "d104",
+     "text": "Whispered and urgent, with a strained, pleading tone and a slight tremor in the voice"
     },
-    {
-     "id": "c070",
-     "audio": "audio/c070.mp3"
-    }
-   ]
-  },
-  {
-   "id": "p020",
-   "block": 1,
-   "desc": {
-    "id": "d084",
-    "text": "Smooth and slightly boastful, with a moderate pace and a casual, conversational tone. A low chuckle is heard at the end."
-   },
-   "clips": [
-    {
-     "id": "c071",
-     "audio": "audio/c071.mp3"
-    },
-    {
-     "id": "c072",
-     "audio": "audio/c072.mp3"
-    }
-   ]
-  },
-  {
-   "id": "p021",
-   "block": 0,
-   "desc": {
-    "id": "d085",
-    "text": "The delivery is quick and clipped, with a rising inflection at the end of the first line. There's a sharp, almost sarcastic tone in the second sentence, accompanied by a short, breathy chuckle."
-   },
-   "clips": [
-    {
-     "id": "c073",
-     "audio": "audio/c073.mp3"
-    },
-    {
-     "id": "c074",
-     "audio": "audio/c074.mp3"
-    }
-   ]
-  },
-  {
-   "id": "p022",
-   "block": 1,
-   "desc": {
-    "id": "d086",
-    "text": "A weary, conversational tone with a sigh at the beginning, slightly self-mocking, and unhurried pacing."
-   },
-   "clips": [
-    {
-     "id": "c075",
-     "audio": "audio/c075.mp3"
-    },
-    {
-     "id": "c076",
-     "audio": "audio/c076.mp3"
-    }
-   ]
-  },
-  {
-   "id": "p023",
-   "block": -1,
-   "desc": {
-    "id": "d087",
-    "text": "Slow, deliberate, with a subtle hesitation and a low, thoughtful tone. A soft throat clear precedes the line, adding to the sense of unease."
-   },
-   "clips": [
-    {
-     "id": "c077",
-     "audio": "audio/c077.mp3"
-    },
-    {
-     "id": "c078",
-     "audio": "audio/c078.mp3"
-    }
-   ]
-  },
-  {
-   "id": "p024",
-   "block": -1,
-   "desc": {
-    "id": "d088",
-    "text": "Soft, breathy tone with a slow pace; includes a sigh and gentle emphasis on emotion"
-   },
-   "clips": [
-    {
-     "id": "c079",
-     "audio": "audio/c079.mp3"
-    },
-    {
-     "id": "c080",
-     "audio": "audio/c080.mp3"
-    }
-   ]
+    "clips": [
+     {
+      "id": "c083",
+      "audio": "audio/c083.mp3"
+     },
+     {
+      "id": "c084",
+      "audio": "audio/c084.mp3"
+     }
+    ]
+   }
   }
  ]
 }
